@@ -1,0 +1,10 @@
+D:\TIOT_API\TIOT_API\BusinessEntities\bin\Debug\BusinessEntities.dll
+D:\TIOT_API\TIOT_API\BusinessEntities\bin\Debug\BusinessEntities.pdb
+D:\TIOT_API\TIOT_API\BusinessEntities\obj\Debug\BusinessEntities.csprojResolveAssemblyReference.cache
+D:\TIOT_API\TIOT_API\BusinessEntities\obj\Debug\BusinessEntities.dll
+D:\TIOT_API\TIOT_API\BusinessEntities\obj\Debug\BusinessEntities.pdb
+D:\TIOT\TIOT_API\BusinessEntities\bin\Debug\BusinessEntities.dll
+D:\TIOT\TIOT_API\BusinessEntities\bin\Debug\BusinessEntities.pdb
+D:\TIOT\TIOT_API\BusinessEntities\obj\Debug\BusinessEntities.csprojResolveAssemblyReference.cache
+D:\TIOT\TIOT_API\BusinessEntities\obj\Debug\BusinessEntities.dll
+D:\TIOT\TIOT_API\BusinessEntities\obj\Debug\BusinessEntities.pdb

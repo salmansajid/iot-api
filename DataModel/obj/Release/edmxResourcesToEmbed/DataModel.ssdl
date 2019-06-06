@@ -1,0 +1,1375 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TIOTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ImgPath" Type="nvarchar" MaxLength="255" />
+    <Property Name="EnableORDisable" Type="bit" Nullable="false" />
+    <Property Name="Deleted" Type="bit" />
+    <Property Name="Min" Type="nvarchar" MaxLength="16" />
+    <Property Name="Max" Type="nvarchar" MaxLength="16" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="ClientID" />
+    </Key>
+    <Property Name="ClientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="OperatorID" Type="int" Nullable="false" />
+    <Property Name="Contact" Type="ntext" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Enabled" Type="bit" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ExpireDate" Type="datetime" />
+    <Property Name="Deleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Command">
+    <Key>
+      <PropertyRef Name="CommandID" />
+    </Key>
+    <Property Name="CommandID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Parameter" Type="nvarchar" MaxLength="50" />
+    <Property Name="DeviceType" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CommandExecuteHistory">
+    <Key>
+      <PropertyRef Name="CommandExecuteHistoryID" />
+    </Key>
+    <Property Name="CommandExecuteHistoryID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ObjectId" Type="int" Nullable="false" />
+    <Property Name="CommandID" Type="int" Nullable="false" />
+    <Property Name="Response" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="ExecutedBy" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="CommandHistory">
+    <Key>
+      <PropertyRef Name="CommandHistoryID" />
+    </Key>
+    <Property Name="CommandHistoryID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ObjectId" Type="int" Nullable="false" />
+    <Property Name="Source" Type="int" Nullable="false" />
+    <Property Name="Status" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="50" />
+    <Property Name="DateTimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="CommandsQueueID" Type="int" Nullable="false" />
+    <Property Name="CommandID" Type="int" Nullable="false" />
+    <Property Name="Response" Type="nvarchar" MaxLength="200" />
+    <Property Name="StateSMS" Type="int" />
+    <Property Name="AlertState" Type="int" />
+  </EntityType>
+  <EntityType Name="CommandLogByUserID">
+    <Key>
+      <PropertyRef Name="LogID" />
+    </Key>
+    <Property Name="LogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" />
+    <Property Name="ObjectID" Type="int" />
+    <Property Name="SensorID" Type="int" />
+    <Property Name="CommandID" Type="int" />
+    <Property Name="DateTimeStamp" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CommandsQueue">
+    <Key>
+      <PropertyRef Name="CommandsQueueID" />
+    </Key>
+    <Property Name="CommandsQueueID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ObjectID" Type="int" Nullable="false" />
+    <Property Name="CommandID" Type="int" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="UnderProcess" Type="bit" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TIOT.dbo.ConsumptionReport' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ConsumptionReport">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="SensorID" Type="int" />
+    <Property Name="Volt" Type="float" />
+    <Property Name="Cur" Type="float" />
+    <Property Name="Power" Type="float" />
+    <Property Name="DateTime" Type="date" />
+    <Property Name="ObjectID" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TIOT.dbo.ControllingReport' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ControllingReport">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SensorName" Type="varchar" MaxLength="50" />
+    <Property Name="StartTime" Type="varchar" MaxLength="50" />
+    <Property Name="EndTime" Type="varchar" MaxLength="50" />
+    <Property Name="TotalDuration" Type="varchar" MaxLength="50" />
+    <Property Name="DateTime" Type="date" />
+    <Property Name="ObjectID" Type="int" />
+  </EntityType>
+  <EntityType Name="CustomNotification">
+    <Key>
+      <PropertyRef Name="NotificationID" />
+    </Key>
+    <Property Name="NotificationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Message" Type="nvarchar(max)" />
+    <Property Name="DateTime" Type="datetime" />
+    <Property Name="ClientID" Type="int" />
+    <Property Name="ObjectID" Type="int" />
+    <Property Name="CategoryName" Type="varchar" MaxLength="50" />
+    <Property Name="State" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TIOT.dbo.DigitalInputLog' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="DigitalInputLog">
+    <Key>
+      <PropertyRef Name="LogID" />
+    </Key>
+    <Property Name="LogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ObjectSensorID" Type="int" />
+    <Property Name="ObjectID" Type="int" />
+    <Property Name="SensorID" Type="int" />
+    <Property Name="Value" Type="float" />
+    <Property Name="Condition" Type="nvarchar" MaxLength="50" />
+    <Property Name="DateTime" Type="datetime" />
+    <Property Name="PMID" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TIOT.dbo.DigitalInputTemp' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="DigitalInputTemp">
+    <Key>
+      <PropertyRef Name="DinId" />
+    </Key>
+    <Property Name="DinId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PMID" Type="int" />
+    <Property Name="ObjectsensorId" Type="int" />
+    <Property Name="Value" Type="bit" />
+    <Property Name="Condition" Type="nvarchar" MaxLength="50" />
+    <Property Name="DatetimeStamp" Type="datetime" />
+  </EntityType>
+  <EntityType Name="EquipmentScheduling">
+    <Key>
+      <PropertyRef Name="SchedulingID" />
+    </Key>
+    <Property Name="SchedulingID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ObjectId" Type="int" />
+    <Property Name="StartTime" Type="varchar" MaxLength="50" />
+    <Property Name="EndTime" Type="varchar" MaxLength="50" />
+    <Property Name="Days" Type="int" />
+    <Property Name="ObjectSensorId" Type="int" />
+    <Property Name="EnableOrDisable" Type="bit" />
+    <Property Name="DaysName" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="EventConfigLog">
+    <Key>
+      <PropertyRef Name="ECLID" />
+    </Key>
+    <Property Name="ECLID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ObjectID" Type="int" />
+    <Property Name="ObjectSensorID" Type="int" />
+    <Property Name="SensorID" Type="int" />
+    <Property Name="Value" Type="nvarchar" MaxLength="16" />
+    <Property Name="Condition" Type="nvarchar" MaxLength="8" />
+    <Property Name="DateTimeStamp" Type="datetime" />
+    <Property Name="ReceivedDateTime" Type="datetime" />
+    <Property Name="PMID" Type="int" />
+  </EntityType>
+  <EntityType Name="EventConfigTemp">
+    <Key>
+      <PropertyRef Name="ECTID" />
+    </Key>
+    <Property Name="ECTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ObjectSensorID" Type="int" />
+    <Property Name="Value" Type="nvarchar" MaxLength="16" />
+    <Property Name="Condition" Type="nvarchar" MaxLength="8" />
+    <Property Name="DateTimeStamp" Type="datetime" />
+    <Property Name="PMID" Type="int" />
+  </EntityType>
+  <EntityType Name="EventConfiguration">
+    <Key>
+      <PropertyRef Name="EventConfigID" />
+    </Key>
+    <Property Name="EventConfigID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ObjectSensorID" Type="bigint" />
+    <Property Name="ObjectID" Type="int" />
+    <Property Name="Min" Type="float" Nullable="false" />
+    <Property Name="MAX" Type="float" Nullable="false" />
+    <Property Name="Condition" Type="int" Nullable="false" />
+    <Property Name="EnableOrDisable" Type="bit" />
+    <Property Name="A0" Type="float" />
+    <Property Name="A1" Type="float" />
+    <Property Name="Contact" Type="nvarchar(max)" />
+    <Property Name="Units" Type="nvarchar" MaxLength="24" />
+    <Property Name="Format" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="EventLog">
+    <Key>
+      <PropertyRef Name="EventLogID" />
+    </Key>
+    <Property Name="EventLogID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PMID" Type="bigint" />
+    <Property Name="PMDATAID" Type="bigint" />
+    <Property Name="ObjectID" Type="int" />
+    <Property Name="DeviceDateTime" Type="datetime" />
+    <Property Name="ObjectSensorId" Type="bigint" />
+    <Property Name="VALUE" Type="nvarchar(max)" />
+    <Property Name="SensorID" Type="int" />
+    <Property Name="Valid" Type="bit" />
+    <Property Name="DateTimeStamp" Type="datetime" />
+  </EntityType>
+  <EntityType Name="EventSMSLog">
+    <Key>
+      <PropertyRef Name="ESLID" />
+    </Key>
+    <Property Name="ESLID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EventLogID" Type="int" />
+    <Property Name="Object" Type="nvarchar" MaxLength="24" />
+    <Property Name="Location" Type="nvarchar" MaxLength="24" />
+    <Property Name="CategoryId" Type="int" />
+    <Property Name="ObjectSensorID" Type="int" />
+    <Property Name="Value" Type="nvarchar" MaxLength="24" />
+    <Property Name="Contact" Type="nvarchar" MaxLength="255" />
+    <Property Name="DateTimeStamp" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Feature">
+    <Key>
+      <PropertyRef Name="FeatureID" />
+    </Key>
+    <Property Name="FeatureID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Description" Type="ntext" Nullable="false" />
+    <Property Name="Link" Type="varchar" MaxLength="50" />
+    <Property Name="ParentId" Type="int" />
+    <Property Name="Class" Type="varchar" MaxLength="50" />
+    <Property Name="EnableOrDisable" Type="bit" />
+  </EntityType>
+  <EntityType Name="FederalHolidays">
+    <Key>
+      <PropertyRef Name="HolidaysID" />
+    </Key>
+    <Property Name="HolidaysID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Holidays" Type="varchar" MaxLength="200" />
+    <Property Name="FullDate" Type="date" />
+    <Property Name="Enabled" Type="bit" />
+    <Property Name="GroupID" Type="int" />
+  </EntityType>
+  <EntityType Name="FirmwareScheduling">
+    <Key>
+      <PropertyRef Name="FSID" />
+    </Key>
+    <Property Name="FSID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClientId" Type="int" />
+    <Property Name="ObjectId" Type="int" />
+    <Property Name="SimNumber" Type="varchar" MaxLength="24" />
+    <Property Name="Command" Type="nvarchar" MaxLength="255" />
+    <Property Name="ExecutionTime" Type="nvarchar" MaxLength="24" />
+    <Property Name="DateTimeStamp" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Group">
+    <Key>
+      <PropertyRef Name="GroupID" />
+    </Key>
+    <Property Name="GroupID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClientID" Type="int" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Deleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="Login">
+    <Key>
+      <PropertyRef Name="LoginID" />
+    </Key>
+    <Property Name="LoginID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClientID" Type="int" />
+    <Property Name="RoleID" Type="int" />
+    <Property Name="User" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Comment" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DisplayName" Type="nvarchar" MaxLength="255" />
+    <Property Name="Enabled" Type="bit" />
+  </EntityType>
+  <EntityType Name="LoginFeature">
+    <Key>
+      <PropertyRef Name="LoginFeatureID" />
+    </Key>
+    <Property Name="LoginFeatureID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LoginID" Type="int" Nullable="false" />
+    <Property Name="FeatureID" Type="int" Nullable="false" />
+    <Property Name="Enable" Type="bit" />
+  </EntityType>
+  <EntityType Name="LoginGroup">
+    <Key>
+      <PropertyRef Name="LoginGroupID" />
+    </Key>
+    <Property Name="LoginGroupID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GroupID" Type="int" Nullable="false" />
+    <Property Name="LoginID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ObjectAlertStatus">
+    <Key>
+      <PropertyRef Name="AlertID" />
+    </Key>
+    <Property Name="AlertID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ObjectID" Type="int" />
+    <Property Name="DateTimeStamp" Type="datetime" />
+    <Property Name="DateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ObjectCommands">
+    <Key>
+      <PropertyRef Name="CommandsQueueID" />
+    </Key>
+    <Property Name="CommandsQueueID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ObjectID" Type="int" Nullable="false" />
+    <Property Name="CommandID" Type="int" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="status" Type="bit" />
+  </EntityType>
+  <EntityType Name="ObjectGroup">
+    <Key>
+      <PropertyRef Name="ObjectGroupID" />
+    </Key>
+    <Property Name="ObjectGroupID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ObjectID" Type="int" Nullable="false" />
+    <Property Name="GroupID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ObjectLastStatus">
+    <Key>
+      <PropertyRef Name="StatusID" />
+    </Key>
+    <Property Name="StatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PMID" Type="bigint" />
+    <Property Name="ObjectID" Type="int" />
+    <Property Name="DeviceIP" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DeviceStatus" Type="bit" Nullable="false" />
+    <Property Name="ConnectionDatetime" Type="datetime" Nullable="false" />
+    <Property Name="Priority" Type="int" />
+    <Property Name="DevicePort" Type="int" Nullable="false" />
+    <Property Name="LastRecordReceived" Type="datetime" />
+    <Property Name="LastUpdated" Type="datetime" />
+  </EntityType>
+  <EntityType Name="OBJECTS">
+    <Key>
+      <PropertyRef Name="ObjectID" />
+    </Key>
+    <Property Name="ObjectID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LAT" Type="float" Nullable="false" />
+    <Property Name="LONG" Type="float" Nullable="false" />
+    <Property Name="IMEI" Type="bigint" Nullable="false" />
+    <Property Name="SimNumber" Type="bigint" Nullable="false" />
+    <Property Name="FirmWareVersion" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="HardwareVersion" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="EnableOrDisable" Type="bit" Nullable="false" />
+    <Property Name="ClientID" Type="int" />
+    <Property Name="Contact" Type="nvarchar" MaxLength="255" />
+    <Property Name="RelayStatus" Type="bit" />
+    <Property Name="ObjectType" Type="nvarchar" MaxLength="50" />
+    <Property Name="Deleted" Type="bit" />
+    <Property Name="DeleteDateTime" Type="datetime" />
+    <Property Name="TavlClient" Type="int" />
+    <Property Name="TavlGroup" Type="int" />
+    <Property Name="TavlIP" Type="varchar" MaxLength="50" />
+    <Property Name="TavlStatus" Type="bit" />
+    <Property Name="AttendanceClient" Type="int" />
+    <Property Name="AttendanceIP" Type="nvarchar" MaxLength="50" />
+    <Property Name="AttendanceStatus" Type="bit" />
+    <Property Name="SurveillanceIP" Type="nvarchar" MaxLength="50" />
+    <Property Name="SurveillanceStatus" Type="bit" />
+    <Property Name="CreatedDatetime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ObjectSensors">
+    <Key>
+      <PropertyRef Name="ObjectSensorId" />
+    </Key>
+    <Property Name="ObjectSensorId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SensorID" Type="int" Nullable="false" />
+    <Property Name="ObjectID" Type="int" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="Enabled" Type="bit" />
+    <Property Name="SMSAlert" Type="bit" />
+    <Property Name="EmailAlert" Type="bit" />
+    <Property Name="A0" Type="float" />
+    <Property Name="A1" Type="float" />
+    <Property Name="Contact" Type="nvarchar" MaxLength="255" />
+    <Property Name="Min" Type="int" />
+    <Property Name="Max" Type="int" />
+    <Property Name="CategoryID" Type="int" />
+  </EntityType>
+  <EntityType Name="PMDATA">
+    <Key>
+      <PropertyRef Name="PMDATAID" />
+    </Key>
+    <Property Name="PMDATAID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PMID" Type="bigint" />
+    <Property Name="ObjectSensorId" Type="bigint" />
+    <Property Name="VALUE" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DateTimeStamp" Type="datetime" />
+    <Property Name="SensorId" Type="int" />
+  </EntityType>
+  <EntityType Name="PMessage">
+    <Key>
+      <PropertyRef Name="PMID" />
+    </Key>
+    <Property Name="PMID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ReceivedDateTimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="ObjectID" Type="int" />
+    <Property Name="Valid" Type="bit" Nullable="false" />
+    <Property Name="Deleted" Type="bit" />
+    <Property Name="DeleteDateTime" Type="datetime" />
+    <Property Name="DeviceDateTime" Type="datetime" Nullable="false" />
+    <Property Name="DateTimeStamp" Type="datetime" />
+    <Property Name="Record_Priority" Type="int" />
+  </EntityType>
+  <EntityType Name="RelayNotifications">
+    <Key>
+      <PropertyRef Name="RelaynotificationID" />
+    </Key>
+    <Property Name="RelaynotificationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Message" Type="nvarchar(max)" />
+    <Property Name="DateTime" Type="datetime" />
+    <Property Name="ClientID" Type="int" />
+    <Property Name="GroupID" Type="int" />
+    <Property Name="ObjectID" Type="int" />
+    <Property Name="CategoryName" Type="varchar" MaxLength="50" />
+    <Property Name="State" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TIOT.dbo.ReportConsumption' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ReportConsumption">
+    <Key>
+      <PropertyRef Name="ConsumptionID" />
+    </Key>
+    <Property Name="ConsumptionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="SensorID" Type="int" />
+    <Property Name="Average" Type="float" />
+    <Property Name="DeviceName" Type="varchar" MaxLength="50" />
+    <Property Name="SensorName" Type="varchar" MaxLength="50" />
+    <Property Name="DayDate" Type="date" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TIOT.dbo.ReportControlling' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ReportControlling">
+    <Key>
+      <PropertyRef Name="ControllingID" />
+    </Key>
+    <Property Name="ControllingID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SourceName" Type="varchar" MaxLength="50" />
+    <Property Name="ObjectID" Type="int" />
+    <Property Name="Value" Type="int" />
+    <Property Name="DateTimeStamp" Type="datetime" />
+    <Property Name="SensorName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="RoleID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Scheduling">
+    <Key>
+      <PropertyRef Name="SchedulingID" />
+    </Key>
+    <Property Name="SchedulingID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ObjectId" Type="int" Nullable="false" />
+    <Property Name="ScheduleTime" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CommandID" Type="int" Nullable="false" />
+    <Property Name="EnableOrDisable" Type="bit" />
+    <Property Name="Days" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TIOT.dbo.SensorCommand' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="SensorCommand">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CommandID" Type="int" />
+    <Property Name="SensorID" Type="int" />
+    <Property Name="Description" Type="varchar" MaxLength="50" />
+    <Property Name="Route" Type="nvarchar" MaxLength="50" />
+    <Property Name="RelayStatus" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TIOT.dbo.SensorControlling' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="SensorControlling">
+    <Key>
+      <PropertyRef Name="SCID" />
+    </Key>
+    <Property Name="SCID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ObjectID" Type="int" />
+    <Property Name="ObjectSensorID" Type="int" />
+    <Property Name="Min" Type="float" />
+    <Property Name="Max" Type="float" />
+    <Property Name="Condition" Type="int" />
+    <Property Name="OnCommandID" Type="int" />
+    <Property Name="OffCommandID" Type="int" />
+    <Property Name="LocationID" Type="int" />
+    <Property Name="RelayStatus" Type="bit" />
+    <Property Name="Enabled" Type="bit" />
+  </EntityType>
+  <EntityType Name="SensorInterpretation">
+    <Key>
+      <PropertyRef Name="SensorInterpretationId" />
+    </Key>
+    <Property Name="SensorInterpretationId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ObjectSensorId" Type="bigint" Nullable="false" />
+    <Property Name="MinValue" Type="float" Nullable="false" />
+    <Property Name="MaxValue" Type="float" Nullable="false" />
+    <Property Name="Meaning" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TIOT.dbo.SensorObjectGroup' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="SensorObjectGroup">
+    <Key>
+      <PropertyRef Name="SensorObjectGroupID" />
+    </Key>
+    <Property Name="SensorObjectGroupID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ROUT" Type="int" />
+    <Property Name="ROUTCurrent" Type="int" />
+    <Property Name="ROUTVoltage" Type="int" />
+    <Property Name="ROUTStatus" Type="int" />
+    <Property Name="ROUTFault" Type="int" />
+  </EntityType>
+  <EntityType Name="Sensors">
+    <Key>
+      <PropertyRef Name="SensorID" />
+    </Key>
+    <Property Name="SensorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SourceID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SourceName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Unit" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="EnableOrDisable" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SMS_SentLog">
+    <Key>
+      <PropertyRef Name="LogID" />
+    </Key>
+    <Property Name="LogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ObjectSensorID" Type="int" />
+    <Property Name="ObjectID" Type="int" />
+    <Property Name="SensorID" Type="int" />
+    <Property Name="Value" Type="float" />
+    <Property Name="Condition" Type="nvarchar" MaxLength="50" />
+    <Property Name="DateTime" Type="datetime" />
+    <Property Name="PMID" Type="int" />
+  </EntityType>
+  <EntityType Name="smsDinStatetemp">
+    <Key>
+      <PropertyRef Name="DinId" />
+    </Key>
+    <Property Name="DinId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PMID" Type="int" />
+    <Property Name="ObjectsensorId" Type="int" />
+    <Property Name="Value" Type="bit" />
+    <Property Name="Condition" Type="nvarchar" MaxLength="50" />
+    <Property Name="DatetimeStamp" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SMSLogTempTable">
+    <Key>
+      <PropertyRef Name="SMSLogID" />
+    </Key>
+    <Property Name="SMSLogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ObjectSensorID" Type="int" />
+    <Property Name="ObjectID" Type="int" />
+    <Property Name="SensorID" Type="int" />
+    <Property Name="Value" Type="float" />
+    <Property Name="Condition" Type="varchar" MaxLength="50" />
+    <Property Name="DateTime" Type="datetime" />
+    <Property Name="PMID" Type="int" />
+  </EntityType>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="StatusId" />
+    </Key>
+    <Property Name="StatusId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SwitchesReport">
+    <Key>
+      <PropertyRef Name="SwitchID" />
+    </Key>
+    <Property Name="SwitchID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ObjectID" Type="int" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Current" Type="float" />
+    <Property Name="Voltage" Type="float" />
+    <Property Name="Power" Type="float" />
+    <Property Name="Unit" Type="float" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="Fault" Type="bit" />
+    <Property Name="TotalTime" Type="nvarchar(max)" />
+    <Property Name="TotalTime_Decimal" Type="float" />
+    <Property Name="StartTime" Type="datetime" />
+    <Property Name="EndTime" Type="datetime" />
+    <Property Name="C_SensorId" Type="int" />
+    <Property Name="V_SensorId" Type="int" />
+    <Property Name="S_SensorId" Type="int" />
+    <Property Name="DateTimeStamp" Type="date" />
+    <Property Name="LocationID" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'TIOT.dbo.TempSwitchReport' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="TempSwitchReport">
+    <Key>
+      <PropertyRef Name="TempId" />
+    </Key>
+    <Property Name="TempId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ObjectId" Type="int" />
+    <Property Name="Name" Type="nvarchar" MaxLength="55" />
+    <Property Name="Current" Type="float" />
+    <Property Name="Voltage" Type="float" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="Fault" Type="bit" />
+    <Property Name="StartTime" Type="datetime" />
+    <Property Name="EndTime" Type="datetime" />
+    <Property Name="C_SensorId" Type="int" />
+    <Property Name="V_SensorId" Type="int" />
+    <Property Name="S_SensorId" Type="int" />
+    <Property Name="LocationID" Type="int" />
+  </EntityType>
+  <Association Name="FK__EventConf__Objec__3CE9E9DD">
+    <End Role="ObjectSensors" Type="Self.ObjectSensors" Multiplicity="0..1" />
+    <End Role="EventConfiguration" Type="Self.EventConfiguration" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ObjectSensors">
+        <PropertyRef Name="ObjectSensorId" />
+      </Principal>
+      <Dependent Role="EventConfiguration">
+        <PropertyRef Name="ObjectSensorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EventConf__Objec__3ED2324F">
+    <End Role="OBJECTS" Type="Self.OBJECTS" Multiplicity="0..1" />
+    <End Role="EventConfiguration" Type="Self.EventConfiguration" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OBJECTS">
+        <PropertyRef Name="ObjectID" />
+      </Principal>
+      <Dependent Role="EventConfiguration">
+        <PropertyRef Name="ObjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EventLog__Object__2FCF1A8A">
+    <End Role="OBJECTS" Type="Self.OBJECTS" Multiplicity="0..1" />
+    <End Role="EventLog" Type="Self.EventLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OBJECTS">
+        <PropertyRef Name="ObjectID" />
+      </Principal>
+      <Dependent Role="EventLog">
+        <PropertyRef Name="ObjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EventLog__Object__30C33EC3">
+    <End Role="ObjectSensors" Type="Self.ObjectSensors" Multiplicity="0..1" />
+    <End Role="EventLog" Type="Self.EventLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ObjectSensors">
+        <PropertyRef Name="ObjectSensorId" />
+      </Principal>
+      <Dependent Role="EventLog">
+        <PropertyRef Name="ObjectSensorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Login__ClientID__3E52440B">
+    <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
+    <End Role="Login" Type="Self.Login" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="ClientID" />
+      </Principal>
+      <Dependent Role="Login">
+        <PropertyRef Name="ClientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Login__RoleID__3F466844">
+    <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+    <End Role="Login" Type="Self.Login" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="RoleID" />
+      </Principal>
+      <Dependent Role="Login">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__LoginFeat__Featu__48E5AC6E">
+    <End Role="Feature" Type="Self.Feature" Multiplicity="1" />
+    <End Role="LoginFeature" Type="Self.LoginFeature" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Feature">
+        <PropertyRef Name="FeatureID" />
+      </Principal>
+      <Dependent Role="LoginFeature">
+        <PropertyRef Name="FeatureID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__LoginFeat__Login__47F18835">
+    <End Role="Login" Type="Self.Login" Multiplicity="1" />
+    <End Role="LoginFeature" Type="Self.LoginFeature" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Login">
+        <PropertyRef Name="LoginID" />
+      </Principal>
+      <Dependent Role="LoginFeature">
+        <PropertyRef Name="LoginID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__LoginGrou__Group__412EB0B6">
+    <End Role="Group" Type="Self.Group" Multiplicity="1" />
+    <End Role="LoginGroup" Type="Self.LoginGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Group">
+        <PropertyRef Name="GroupID" />
+      </Principal>
+      <Dependent Role="LoginGroup">
+        <PropertyRef Name="GroupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__LoginGrou__Login__4316F928">
+    <End Role="Login" Type="Self.Login" Multiplicity="1" />
+    <End Role="LoginGroup" Type="Self.LoginGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Login">
+        <PropertyRef Name="LoginID" />
+      </Principal>
+      <Dependent Role="LoginGroup">
+        <PropertyRef Name="LoginID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ObjectGro__Group__440B1D61">
+    <End Role="Group" Type="Self.Group" Multiplicity="1" />
+    <End Role="ObjectGroup" Type="Self.ObjectGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Group">
+        <PropertyRef Name="GroupID" />
+      </Principal>
+      <Dependent Role="ObjectGroup">
+        <PropertyRef Name="GroupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ObjectGro__Objec__46E78A0C">
+    <End Role="OBJECTS" Type="Self.OBJECTS" Multiplicity="1" />
+    <End Role="ObjectGroup" Type="Self.ObjectGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OBJECTS">
+        <PropertyRef Name="ObjectID" />
+      </Principal>
+      <Dependent Role="ObjectGroup">
+        <PropertyRef Name="ObjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OBJECTS__ClientI__49C3F6B7">
+    <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
+    <End Role="OBJECTS" Type="Self.OBJECTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="ClientID" />
+      </Principal>
+      <Dependent Role="OBJECTS">
+        <PropertyRef Name="ClientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ObjectSen__Categ__628FA481">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="ObjectSensors" Type="Self.ObjectSensors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="ObjectSensors">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ObjectSen__Categ__66603565">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="ObjectSensors" Type="Self.ObjectSensors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="ObjectSensors">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ObjectSen__Objec__6383C8BA">
+    <End Role="OBJECTS" Type="Self.OBJECTS" Multiplicity="0..1" />
+    <End Role="ObjectSensors" Type="Self.ObjectSensors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OBJECTS">
+        <PropertyRef Name="ObjectID" />
+      </Principal>
+      <Dependent Role="ObjectSensors">
+        <PropertyRef Name="ObjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ObjectSen__Objec__6754599E">
+    <End Role="OBJECTS" Type="Self.OBJECTS" Multiplicity="0..1" />
+    <End Role="ObjectSensors" Type="Self.ObjectSensors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OBJECTS">
+        <PropertyRef Name="ObjectID" />
+      </Principal>
+      <Dependent Role="ObjectSensors">
+        <PropertyRef Name="ObjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ObjectSen__Senso__6477ECF3">
+    <End Role="Sensors" Type="Self.Sensors" Multiplicity="1" />
+    <End Role="ObjectSensors" Type="Self.ObjectSensors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sensors">
+        <PropertyRef Name="SensorID" />
+      </Principal>
+      <Dependent Role="ObjectSensors">
+        <PropertyRef Name="SensorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ObjectSen__Senso__68487DD7">
+    <End Role="Sensors" Type="Self.Sensors" Multiplicity="1" />
+    <End Role="ObjectSensors" Type="Self.ObjectSensors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sensors">
+        <PropertyRef Name="SensorID" />
+      </Principal>
+      <Dependent Role="ObjectSensors">
+        <PropertyRef Name="SensorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CommandExecuteHistory_Command">
+    <End Role="Command" Type="Self.Command" Multiplicity="1" />
+    <End Role="CommandExecuteHistory" Type="Self.CommandExecuteHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Command">
+        <PropertyRef Name="CommandID" />
+      </Principal>
+      <Dependent Role="CommandExecuteHistory">
+        <PropertyRef Name="CommandID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CommandExecuteHistory_OBJECTS">
+    <End Role="OBJECTS" Type="Self.OBJECTS" Multiplicity="1" />
+    <End Role="CommandExecuteHistory" Type="Self.CommandExecuteHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OBJECTS">
+        <PropertyRef Name="ObjectID" />
+      </Principal>
+      <Dependent Role="CommandExecuteHistory">
+        <PropertyRef Name="ObjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CommandsQueue_Command">
+    <End Role="Command" Type="Self.Command" Multiplicity="1" />
+    <End Role="ObjectCommands" Type="Self.ObjectCommands" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Command">
+        <PropertyRef Name="CommandID" />
+      </Principal>
+      <Dependent Role="ObjectCommands">
+        <PropertyRef Name="CommandID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CommandsQueue_OBJECTS">
+    <End Role="OBJECTS" Type="Self.OBJECTS" Multiplicity="1" />
+    <End Role="ObjectCommands" Type="Self.ObjectCommands" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OBJECTS">
+        <PropertyRef Name="ObjectID" />
+      </Principal>
+      <Dependent Role="ObjectCommands">
+        <PropertyRef Name="ObjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ObjectCommands_Command">
+    <End Role="Command" Type="Self.Command" Multiplicity="1" />
+    <End Role="CommandsQueue" Type="Self.CommandsQueue" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Command">
+        <PropertyRef Name="CommandID" />
+      </Principal>
+      <Dependent Role="CommandsQueue">
+        <PropertyRef Name="CommandID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ObjectCommands_OBJECTS">
+    <End Role="OBJECTS" Type="Self.OBJECTS" Multiplicity="1" />
+    <End Role="CommandsQueue" Type="Self.CommandsQueue" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OBJECTS">
+        <PropertyRef Name="ObjectID" />
+      </Principal>
+      <Dependent Role="CommandsQueue">
+        <PropertyRef Name="ObjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ObjectLastStatus_OBJECTS">
+    <End Role="OBJECTS" Type="Self.OBJECTS" Multiplicity="0..1" />
+    <End Role="ObjectLastStatus" Type="Self.ObjectLastStatus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OBJECTS">
+        <PropertyRef Name="ObjectID" />
+      </Principal>
+      <Dependent Role="ObjectLastStatus">
+        <PropertyRef Name="ObjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ObjectLastStatus_PMessage">
+    <End Role="PMessage" Type="Self.PMessage" Multiplicity="0..1" />
+    <End Role="ObjectLastStatus" Type="Self.ObjectLastStatus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PMessage">
+        <PropertyRef Name="PMID" />
+      </Principal>
+      <Dependent Role="ObjectLastStatus">
+        <PropertyRef Name="PMID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PMDATA_ObjectSensors">
+    <End Role="ObjectSensors" Type="Self.ObjectSensors" Multiplicity="0..1" />
+    <End Role="PMDATA" Type="Self.PMDATA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ObjectSensors">
+        <PropertyRef Name="ObjectSensorId" />
+      </Principal>
+      <Dependent Role="PMDATA">
+        <PropertyRef Name="ObjectSensorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PMDATA_PMessage">
+    <End Role="PMessage" Type="Self.PMessage" Multiplicity="0..1" />
+    <End Role="PMDATA" Type="Self.PMDATA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PMessage">
+        <PropertyRef Name="PMID" />
+      </Principal>
+      <Dependent Role="PMDATA">
+        <PropertyRef Name="PMID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SensorInterpretation_ObjectSensors">
+    <End Role="ObjectSensors" Type="Self.ObjectSensors" Multiplicity="1" />
+    <End Role="SensorInterpretation" Type="Self.SensorInterpretation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ObjectSensors">
+        <PropertyRef Name="ObjectSensorId" />
+      </Principal>
+      <Dependent Role="SensorInterpretation">
+        <PropertyRef Name="ObjectSensorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="sp_EventConfig_LocationByObjID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ObjectID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_EventLogbyObjectDT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ObjectID" Type="int" Mode="In" />
+    <Parameter Name="StartTime" Type="datetime" Mode="In" />
+    <Parameter Name="EndTime" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="sp_GetConsumptionTillPackTime" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ObjectID" Type="int" Mode="In" />
+    <Parameter Name="Current" Type="int" Mode="In" />
+    <Parameter Name="Voltage" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_GetCurrentdateConsumption" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ObjectId" Type="int" Mode="In" />
+    <Parameter Name="sensor" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_GetCurrentdateControlling" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ObjectID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_getdemo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ObjectID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_GetFeulLastStatus_Read" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="objectId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_GetNONAlertState" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_GetNonAssignedObjSenForSchd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ObjectId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_GetObjectSensors" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="objectId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_GetSchedulingByObjAndDay" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ObjectId" Type="int" Mode="In" />
+    <Parameter Name="DayId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_GetSchedulingByObjAndDayAndObS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ObjectId" Type="int" Mode="In" />
+    <Parameter Name="DayId" Type="int" Mode="In" />
+    <Parameter Name="ObjectSensorId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_GetSchedulingByObjAndObjSenIdForWeek" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ObjectId" Type="int" Mode="In" />
+    <Parameter Name="ObjectSensorId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_ObjectLastStatus_Read_UPDATED" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="objectId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_SensorData_Read" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="objectId" Type="int" Mode="In" />
+    <Parameter Name="SensorId" Type="int" Mode="In" />
+    <Parameter Name="DateFrom" Type="datetime" Mode="In" />
+    <Parameter Name="DateTo" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="sp_smslog_obj_sensor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ObjectID" Type="int" Mode="In" />
+    <Parameter Name="ObjectSensor" Type="int" Mode="In" />
+    <Parameter Name="FromDate" Type="date" Mode="In" />
+    <Parameter Name="ToDate" Type="date" Mode="In" />
+  </Function>
+  <Function Name="sp_TemperatureSensorByObject" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ObjectID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_GetObjectLastRelayStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ObjectID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspGet_EquipmentConsumptionByDT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ObjectID" Type="int" Mode="In" />
+    <Parameter Name="StartDate" Type="datetime" Mode="In" />
+    <Parameter Name="EndDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="uspGET_ObjectIDNameByGroup" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="GroupID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="uspREPORT_DinState1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ObjectID" Type="int" Mode="In" />
+    <Parameter Name="Startdate" Type="datetime" Mode="In" />
+    <Parameter Name="Enddate" Type="datetime" Mode="In" />
+  </Function>
+  <EntityContainer Name="TIOTModelStoreContainer">
+    <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Command" EntityType="Self.Command" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CommandExecuteHistory" EntityType="Self.CommandExecuteHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CommandHistory" EntityType="Self.CommandHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CommandLogByUserID" EntityType="Self.CommandLogByUserID" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CommandsQueue" EntityType="Self.CommandsQueue" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CustomNotification" EntityType="Self.CustomNotification" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EquipmentScheduling" EntityType="Self.EquipmentScheduling" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EventConfigLog" EntityType="Self.EventConfigLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EventConfigTemp" EntityType="Self.EventConfigTemp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EventConfiguration" EntityType="Self.EventConfiguration" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EventLog" EntityType="Self.EventLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EventSMSLog" EntityType="Self.EventSMSLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Feature" EntityType="Self.Feature" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FederalHolidays" EntityType="Self.FederalHolidays" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FirmwareScheduling" EntityType="Self.FirmwareScheduling" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Group" EntityType="Self.Group" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LoginFeature" EntityType="Self.LoginFeature" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LoginGroup" EntityType="Self.LoginGroup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ObjectAlertStatus" EntityType="Self.ObjectAlertStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ObjectCommands" EntityType="Self.ObjectCommands" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ObjectGroup" EntityType="Self.ObjectGroup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ObjectLastStatus" EntityType="Self.ObjectLastStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OBJECTS" EntityType="Self.OBJECTS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ObjectSensors" EntityType="Self.ObjectSensors" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PMDATA" EntityType="Self.PMDATA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PMessage" EntityType="Self.PMessage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RelayNotifications" EntityType="Self.RelayNotifications" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Scheduling" EntityType="Self.Scheduling" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SensorInterpretation" EntityType="Self.SensorInterpretation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sensors" EntityType="Self.Sensors" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SMS_SentLog" EntityType="Self.SMS_SentLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="smsDinStatetemp" EntityType="Self.smsDinStatetemp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SMSLogTempTable" EntityType="Self.SMSLogTempTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SwitchesReport" EntityType="Self.SwitchesReport" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ConsumptionReport" EntityType="Self.ConsumptionReport" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ConsumptionReport].[ID] AS [ID], 
+    [ConsumptionReport].[Name] AS [Name], 
+    [ConsumptionReport].[SensorID] AS [SensorID], 
+    [ConsumptionReport].[Volt] AS [Volt], 
+    [ConsumptionReport].[Cur] AS [Cur], 
+    [ConsumptionReport].[Power] AS [Power], 
+    [ConsumptionReport].[DateTime] AS [DateTime], 
+    [ConsumptionReport].[ObjectID] AS [ObjectID]
+    FROM [dbo].[ConsumptionReport] AS [ConsumptionReport]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ControllingReport" EntityType="Self.ControllingReport" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ControllingReport].[ID] AS [ID], 
+    [ControllingReport].[SensorName] AS [SensorName], 
+    [ControllingReport].[StartTime] AS [StartTime], 
+    [ControllingReport].[EndTime] AS [EndTime], 
+    [ControllingReport].[TotalDuration] AS [TotalDuration], 
+    [ControllingReport].[DateTime] AS [DateTime], 
+    [ControllingReport].[ObjectID] AS [ObjectID]
+    FROM [dbo].[ControllingReport] AS [ControllingReport]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="DigitalInputLog" EntityType="Self.DigitalInputLog" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [DigitalInputLog].[LogID] AS [LogID], 
+    [DigitalInputLog].[ObjectSensorID] AS [ObjectSensorID], 
+    [DigitalInputLog].[ObjectID] AS [ObjectID], 
+    [DigitalInputLog].[SensorID] AS [SensorID], 
+    [DigitalInputLog].[Value] AS [Value], 
+    [DigitalInputLog].[Condition] AS [Condition], 
+    [DigitalInputLog].[DateTime] AS [DateTime], 
+    [DigitalInputLog].[PMID] AS [PMID]
+    FROM [dbo].[DigitalInputLog] AS [DigitalInputLog]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="DigitalInputTemp" EntityType="Self.DigitalInputTemp" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [DigitalInputTemp].[DinId] AS [DinId], 
+    [DigitalInputTemp].[PMID] AS [PMID], 
+    [DigitalInputTemp].[ObjectsensorId] AS [ObjectsensorId], 
+    [DigitalInputTemp].[Value] AS [Value], 
+    [DigitalInputTemp].[Condition] AS [Condition], 
+    [DigitalInputTemp].[DatetimeStamp] AS [DatetimeStamp]
+    FROM [dbo].[DigitalInputTemp] AS [DigitalInputTemp]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ReportConsumption" EntityType="Self.ReportConsumption" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ReportConsumption].[ConsumptionID] AS [ConsumptionID], 
+    [ReportConsumption].[Name] AS [Name], 
+    [ReportConsumption].[SensorID] AS [SensorID], 
+    [ReportConsumption].[Average] AS [Average], 
+    [ReportConsumption].[DeviceName] AS [DeviceName], 
+    [ReportConsumption].[SensorName] AS [SensorName], 
+    [ReportConsumption].[DayDate] AS [DayDate]
+    FROM [dbo].[ReportConsumption] AS [ReportConsumption]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ReportControlling" EntityType="Self.ReportControlling" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ReportControlling].[ControllingID] AS [ControllingID], 
+    [ReportControlling].[SourceName] AS [SourceName], 
+    [ReportControlling].[ObjectID] AS [ObjectID], 
+    [ReportControlling].[Value] AS [Value], 
+    [ReportControlling].[DateTimeStamp] AS [DateTimeStamp], 
+    [ReportControlling].[SensorName] AS [SensorName]
+    FROM [dbo].[ReportControlling] AS [ReportControlling]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="SensorCommand" EntityType="Self.SensorCommand" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [SensorCommand].[ID] AS [ID], 
+    [SensorCommand].[CommandID] AS [CommandID], 
+    [SensorCommand].[SensorID] AS [SensorID], 
+    [SensorCommand].[Description] AS [Description], 
+    [SensorCommand].[Route] AS [Route], 
+    [SensorCommand].[RelayStatus] AS [RelayStatus]
+    FROM [dbo].[SensorCommand] AS [SensorCommand]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="SensorControlling" EntityType="Self.SensorControlling" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [SensorControlling].[SCID] AS [SCID], 
+    [SensorControlling].[ObjectID] AS [ObjectID], 
+    [SensorControlling].[ObjectSensorID] AS [ObjectSensorID], 
+    [SensorControlling].[Min] AS [Min], 
+    [SensorControlling].[Max] AS [Max], 
+    [SensorControlling].[Condition] AS [Condition], 
+    [SensorControlling].[OnCommandID] AS [OnCommandID], 
+    [SensorControlling].[OffCommandID] AS [OffCommandID], 
+    [SensorControlling].[LocationID] AS [LocationID], 
+    [SensorControlling].[RelayStatus] AS [RelayStatus], 
+    [SensorControlling].[Enabled] AS [Enabled]
+    FROM [dbo].[SensorControlling] AS [SensorControlling]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="SensorObjectGroup" EntityType="Self.SensorObjectGroup" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [SensorObjectGroup].[SensorObjectGroupID] AS [SensorObjectGroupID], 
+    [SensorObjectGroup].[ROUT] AS [ROUT], 
+    [SensorObjectGroup].[ROUTCurrent] AS [ROUTCurrent], 
+    [SensorObjectGroup].[ROUTVoltage] AS [ROUTVoltage], 
+    [SensorObjectGroup].[ROUTStatus] AS [ROUTStatus], 
+    [SensorObjectGroup].[ROUTFault] AS [ROUTFault]
+    FROM [dbo].[SensorObjectGroup] AS [SensorObjectGroup]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="TempSwitchReport" EntityType="Self.TempSwitchReport" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [TempSwitchReport].[TempId] AS [TempId], 
+    [TempSwitchReport].[ObjectId] AS [ObjectId], 
+    [TempSwitchReport].[Name] AS [Name], 
+    [TempSwitchReport].[Current] AS [Current], 
+    [TempSwitchReport].[Voltage] AS [Voltage], 
+    [TempSwitchReport].[Status] AS [Status], 
+    [TempSwitchReport].[Fault] AS [Fault], 
+    [TempSwitchReport].[StartTime] AS [StartTime], 
+    [TempSwitchReport].[EndTime] AS [EndTime], 
+    [TempSwitchReport].[C_SensorId] AS [C_SensorId], 
+    [TempSwitchReport].[V_SensorId] AS [V_SensorId], 
+    [TempSwitchReport].[S_SensorId] AS [S_SensorId], 
+    [TempSwitchReport].[LocationID] AS [LocationID]
+    FROM [dbo].[TempSwitchReport] AS [TempSwitchReport]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__EventConf__Objec__3CE9E9DD" Association="Self.FK__EventConf__Objec__3CE9E9DD">
+      <End Role="ObjectSensors" EntitySet="ObjectSensors" />
+      <End Role="EventConfiguration" EntitySet="EventConfiguration" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EventConf__Objec__3ED2324F" Association="Self.FK__EventConf__Objec__3ED2324F">
+      <End Role="OBJECTS" EntitySet="OBJECTS" />
+      <End Role="EventConfiguration" EntitySet="EventConfiguration" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EventLog__Object__2FCF1A8A" Association="Self.FK__EventLog__Object__2FCF1A8A">
+      <End Role="OBJECTS" EntitySet="OBJECTS" />
+      <End Role="EventLog" EntitySet="EventLog" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EventLog__Object__30C33EC3" Association="Self.FK__EventLog__Object__30C33EC3">
+      <End Role="ObjectSensors" EntitySet="ObjectSensors" />
+      <End Role="EventLog" EntitySet="EventLog" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Login__ClientID__3E52440B" Association="Self.FK__Login__ClientID__3E52440B">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="Login" EntitySet="Login" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Login__RoleID__3F466844" Association="Self.FK__Login__RoleID__3F466844">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="Login" EntitySet="Login" />
+    </AssociationSet>
+    <AssociationSet Name="FK__LoginFeat__Featu__48E5AC6E" Association="Self.FK__LoginFeat__Featu__48E5AC6E">
+      <End Role="Feature" EntitySet="Feature" />
+      <End Role="LoginFeature" EntitySet="LoginFeature" />
+    </AssociationSet>
+    <AssociationSet Name="FK__LoginFeat__Login__47F18835" Association="Self.FK__LoginFeat__Login__47F18835">
+      <End Role="Login" EntitySet="Login" />
+      <End Role="LoginFeature" EntitySet="LoginFeature" />
+    </AssociationSet>
+    <AssociationSet Name="FK__LoginGrou__Group__412EB0B6" Association="Self.FK__LoginGrou__Group__412EB0B6">
+      <End Role="Group" EntitySet="Group" />
+      <End Role="LoginGroup" EntitySet="LoginGroup" />
+    </AssociationSet>
+    <AssociationSet Name="FK__LoginGrou__Login__4316F928" Association="Self.FK__LoginGrou__Login__4316F928">
+      <End Role="Login" EntitySet="Login" />
+      <End Role="LoginGroup" EntitySet="LoginGroup" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ObjectGro__Group__440B1D61" Association="Self.FK__ObjectGro__Group__440B1D61">
+      <End Role="Group" EntitySet="Group" />
+      <End Role="ObjectGroup" EntitySet="ObjectGroup" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ObjectGro__Objec__46E78A0C" Association="Self.FK__ObjectGro__Objec__46E78A0C">
+      <End Role="OBJECTS" EntitySet="OBJECTS" />
+      <End Role="ObjectGroup" EntitySet="ObjectGroup" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OBJECTS__ClientI__49C3F6B7" Association="Self.FK__OBJECTS__ClientI__49C3F6B7">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="OBJECTS" EntitySet="OBJECTS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ObjectSen__Categ__628FA481" Association="Self.FK__ObjectSen__Categ__628FA481">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="ObjectSensors" EntitySet="ObjectSensors" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ObjectSen__Categ__66603565" Association="Self.FK__ObjectSen__Categ__66603565">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="ObjectSensors" EntitySet="ObjectSensors" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ObjectSen__Objec__6383C8BA" Association="Self.FK__ObjectSen__Objec__6383C8BA">
+      <End Role="OBJECTS" EntitySet="OBJECTS" />
+      <End Role="ObjectSensors" EntitySet="ObjectSensors" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ObjectSen__Objec__6754599E" Association="Self.FK__ObjectSen__Objec__6754599E">
+      <End Role="OBJECTS" EntitySet="OBJECTS" />
+      <End Role="ObjectSensors" EntitySet="ObjectSensors" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ObjectSen__Senso__6477ECF3" Association="Self.FK__ObjectSen__Senso__6477ECF3">
+      <End Role="Sensors" EntitySet="Sensors" />
+      <End Role="ObjectSensors" EntitySet="ObjectSensors" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ObjectSen__Senso__68487DD7" Association="Self.FK__ObjectSen__Senso__68487DD7">
+      <End Role="Sensors" EntitySet="Sensors" />
+      <End Role="ObjectSensors" EntitySet="ObjectSensors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CommandExecuteHistory_Command" Association="Self.FK_CommandExecuteHistory_Command">
+      <End Role="Command" EntitySet="Command" />
+      <End Role="CommandExecuteHistory" EntitySet="CommandExecuteHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CommandExecuteHistory_OBJECTS" Association="Self.FK_CommandExecuteHistory_OBJECTS">
+      <End Role="OBJECTS" EntitySet="OBJECTS" />
+      <End Role="CommandExecuteHistory" EntitySet="CommandExecuteHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CommandsQueue_Command" Association="Self.FK_CommandsQueue_Command">
+      <End Role="Command" EntitySet="Command" />
+      <End Role="ObjectCommands" EntitySet="ObjectCommands" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CommandsQueue_OBJECTS" Association="Self.FK_CommandsQueue_OBJECTS">
+      <End Role="OBJECTS" EntitySet="OBJECTS" />
+      <End Role="ObjectCommands" EntitySet="ObjectCommands" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ObjectCommands_Command" Association="Self.FK_ObjectCommands_Command">
+      <End Role="Command" EntitySet="Command" />
+      <End Role="CommandsQueue" EntitySet="CommandsQueue" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ObjectCommands_OBJECTS" Association="Self.FK_ObjectCommands_OBJECTS">
+      <End Role="OBJECTS" EntitySet="OBJECTS" />
+      <End Role="CommandsQueue" EntitySet="CommandsQueue" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ObjectLastStatus_OBJECTS" Association="Self.FK_ObjectLastStatus_OBJECTS">
+      <End Role="OBJECTS" EntitySet="OBJECTS" />
+      <End Role="ObjectLastStatus" EntitySet="ObjectLastStatus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ObjectLastStatus_PMessage" Association="Self.FK_ObjectLastStatus_PMessage">
+      <End Role="PMessage" EntitySet="PMessage" />
+      <End Role="ObjectLastStatus" EntitySet="ObjectLastStatus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PMDATA_ObjectSensors" Association="Self.FK_PMDATA_ObjectSensors">
+      <End Role="ObjectSensors" EntitySet="ObjectSensors" />
+      <End Role="PMDATA" EntitySet="PMDATA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PMDATA_PMessage" Association="Self.FK_PMDATA_PMessage">
+      <End Role="PMessage" EntitySet="PMessage" />
+      <End Role="PMDATA" EntitySet="PMDATA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SensorInterpretation_ObjectSensors" Association="Self.FK_SensorInterpretation_ObjectSensors">
+      <End Role="ObjectSensors" EntitySet="ObjectSensors" />
+      <End Role="SensorInterpretation" EntitySet="SensorInterpretation" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

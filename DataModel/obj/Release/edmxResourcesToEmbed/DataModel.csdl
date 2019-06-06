@@ -1,0 +1,1502 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TIOTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="TIOTEntities1" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="SP_EquipmentControlingReport" ReturnType="Collection(TIOTModel.SP_EquipmentControlingReport_Result)">
+      <Parameter Name="ObjectID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_GetConsumptionTillPackTime" ReturnType="Collection(TIOTModel.sp_GetConsumptionTillPackTime_Result)">
+      <Parameter Name="ObjectID" Mode="In" Type="Int32" />
+      <Parameter Name="Current" Mode="In" Type="Int32" />
+      <Parameter Name="Voltage" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_getdemo" ReturnType="Collection(TIOTModel.sp_getdemo_Result)">
+      <Parameter Name="ObjectID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_GetFeulLastStatus_Read" ReturnType="Collection(TIOTModel.sp_GetFeulLastStatus_Read_Result)">
+      <Parameter Name="objectId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_GetNONAlertState" ReturnType="Collection(TIOTModel.sp_GetNONAlertState_Result)" />
+    <FunctionImport Name="sp_GetNonAssignedObjSenForSchd" ReturnType="Collection(TIOTModel.sp_GetNonAssignedObjSenForSchd_Result)">
+      <Parameter Name="ObjectId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_GetObjectSensors" ReturnType="Collection(TIOTModel.sp_GetObjectSensors_Result)">
+      <Parameter Name="objectId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_GetSchedulingByObjAndDay" ReturnType="Collection(TIOTModel.sp_GetSchedulingByObjAndDay_Result)">
+      <Parameter Name="ObjectId" Mode="In" Type="Int32" />
+      <Parameter Name="DayId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_GetSchedulingByObjAndDayAndObS" ReturnType="Collection(TIOTModel.sp_GetSchedulingByObjAndDayAndObS_Result)">
+      <Parameter Name="ObjectId" Mode="In" Type="Int32" />
+      <Parameter Name="DayId" Mode="In" Type="Int32" />
+      <Parameter Name="ObjectSensorId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_GetSchedulingByObjAndObjSenIdForWeek" ReturnType="Collection(TIOTModel.sp_GetSchedulingByObjAndObjSenIdForWeek_Result)">
+      <Parameter Name="ObjectId" Mode="In" Type="Int32" />
+      <Parameter Name="ObjectSensorId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_SensorData_Read" ReturnType="Collection(TIOTModel.sp_SensorData_Read_Result)">
+      <Parameter Name="objectId" Mode="In" Type="Int32" />
+      <Parameter Name="SensorId" Mode="In" Type="Int32" />
+      <Parameter Name="DateFrom" Mode="In" Type="DateTime" />
+      <Parameter Name="DateTo" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="sp_TemperatureSensorByObject" ReturnType="Collection(TIOTModel.sp_TemperatureSensorByObject_Result)">
+      <Parameter Name="ObjectID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_ObjectLastStatus_Read_UPDATED" ReturnType="Collection(TIOTModel.sp_ObjectLastStatus_Read_UPDATED_Result)">
+      <Parameter Name="objectId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_smslog_obj_sensor" ReturnType="Collection(TIOTModel.sp_smslog_obj_sensor_Result)">
+      <Parameter Name="ObjectID" Mode="In" Type="Int32" />
+      <Parameter Name="ObjectSensor" Mode="In" Type="Int32" />
+      <Parameter Name="FromDate" Mode="In" Type="DateTime" />
+      <Parameter Name="ToDate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="sp_GetCurrentdateControlling" ReturnType="Collection(TIOTModel.sp_GetCurrentdateControlling_Result)">
+      <Parameter Name="ObjectID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_GetCurrentdateConsumption" ReturnType="Collection(TIOTModel.sp_GetCurrentdateConsumption_Result)">
+      <Parameter Name="ObjectId" Mode="In" Type="Int32" />
+      <Parameter Name="sensor" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_EventLogbyObjectDT" ReturnType="Collection(TIOTModel.sp_EventLogbyObjectDT_Result)">
+      <Parameter Name="ObjectID" Mode="In" Type="Int32" />
+      <Parameter Name="StartTime" Mode="In" Type="DateTime" />
+      <Parameter Name="EndTime" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="sp_EventConfig_LocationByObjID" ReturnType="Collection(TIOTModel.sp_EventConfig_LocationByObjID_Result)">
+      <Parameter Name="ObjectID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_GetObjectLastRelayStatus" ReturnType="Collection(TIOTModel.usp_GetObjectLastRelayStatus_Result)">
+      <Parameter Name="ObjectID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="uspREPORT_DinState1" ReturnType="Collection(TIOTModel.uspREPORT_DinState1_Result)">
+      <Parameter Name="ObjectID" Mode="In" Type="Int32" />
+      <Parameter Name="Startdate" Mode="In" Type="DateTime" />
+      <Parameter Name="Enddate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <EntitySet Name="Categories" EntityType="TIOTModel.Category" />
+    <EntitySet Name="Clients" EntityType="TIOTModel.Client" />
+    <EntitySet Name="Commands" EntityType="TIOTModel.Command" />
+    <EntitySet Name="CommandExecuteHistories" EntityType="TIOTModel.CommandExecuteHistory" />
+    <EntitySet Name="CommandHistories" EntityType="TIOTModel.CommandHistory" />
+    <EntitySet Name="CommandsQueues" EntityType="TIOTModel.CommandsQueue" />
+    <EntitySet Name="CustomNotifications" EntityType="TIOTModel.CustomNotification" />
+    <EntitySet Name="EquipmentSchedulings" EntityType="TIOTModel.EquipmentScheduling" />
+    <EntitySet Name="EventConfigLogs" EntityType="TIOTModel.EventConfigLog" />
+    <EntitySet Name="EventConfigTemps" EntityType="TIOTModel.EventConfigTemp" />
+    <EntitySet Name="EventConfigurations" EntityType="TIOTModel.EventConfiguration" />
+    <EntitySet Name="EventLogs" EntityType="TIOTModel.EventLog" />
+    <EntitySet Name="EventSMSLogs" EntityType="TIOTModel.EventSMSLog" />
+    <EntitySet Name="Features" EntityType="TIOTModel.Feature" />
+    <EntitySet Name="FederalHolidays" EntityType="TIOTModel.FederalHoliday" />
+    <EntitySet Name="FirmwareSchedulings" EntityType="TIOTModel.FirmwareScheduling" />
+    <EntitySet Name="Groups" EntityType="TIOTModel.Group" />
+    <EntitySet Name="Logins" EntityType="TIOTModel.Login" />
+    <EntitySet Name="LoginFeatures" EntityType="TIOTModel.LoginFeature" />
+    <EntitySet Name="LoginGroups" EntityType="TIOTModel.LoginGroup" />
+    <EntitySet Name="ObjectCommands" EntityType="TIOTModel.ObjectCommand" />
+    <EntitySet Name="ObjectGroups" EntityType="TIOTModel.ObjectGroup" />
+    <EntitySet Name="ObjectLastStatus" EntityType="TIOTModel.ObjectLastStatu" />
+    <EntitySet Name="OBJECTS" EntityType="TIOTModel.OBJECT" />
+    <EntitySet Name="ObjectSensors" EntityType="TIOTModel.ObjectSensor" />
+    <EntitySet Name="PMDATAs" EntityType="TIOTModel.PMDATA" />
+    <EntitySet Name="PMessages" EntityType="TIOTModel.PMessage" />
+    <EntitySet Name="RelayNotifications" EntityType="TIOTModel.RelayNotification" />
+    <EntitySet Name="Roles" EntityType="TIOTModel.Role" />
+    <EntitySet Name="Schedulings" EntityType="TIOTModel.Scheduling" />
+    <EntitySet Name="SensorInterpretations" EntityType="TIOTModel.SensorInterpretation" />
+    <EntitySet Name="Sensors" EntityType="TIOTModel.Sensor" />
+    <EntitySet Name="SMS_SentLog" EntityType="TIOTModel.SMS_SentLog" />
+    <EntitySet Name="smsDinStatetemps" EntityType="TIOTModel.smsDinStatetemp" />
+    <EntitySet Name="SMSLogTempTables" EntityType="TIOTModel.SMSLogTempTable" />
+    <EntitySet Name="Status" EntityType="TIOTModel.Status" />
+    <EntitySet Name="SwitchesReports" EntityType="TIOTModel.SwitchesReport" />
+    <EntitySet Name="sysdiagrams" EntityType="TIOTModel.sysdiagram" />
+    <EntitySet Name="ConsumptionReports" EntityType="TIOTModel.ConsumptionReport" />
+    <EntitySet Name="ControllingReports" EntityType="TIOTModel.ControllingReport" />
+    <EntitySet Name="DigitalInputLogs" EntityType="TIOTModel.DigitalInputLog" />
+    <EntitySet Name="DigitalInputTemps" EntityType="TIOTModel.DigitalInputTemp" />
+    <EntitySet Name="ReportConsumptions" EntityType="TIOTModel.ReportConsumption" />
+    <EntitySet Name="ReportControllings" EntityType="TIOTModel.ReportControlling" />
+    <EntitySet Name="SensorCommands" EntityType="TIOTModel.SensorCommand" />
+    <EntitySet Name="SensorControllings" EntityType="TIOTModel.SensorControlling" />
+    <EntitySet Name="SensorObjectGroups" EntityType="TIOTModel.SensorObjectGroup" />
+    <EntitySet Name="TempSwitchReports" EntityType="TIOTModel.TempSwitchReport" />
+    <AssociationSet Name="FK__ObjectSen__Categ__628FA481" Association="TIOTModel.FK__ObjectSen__Categ__628FA481">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="ObjectSensor" EntitySet="ObjectSensors" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ObjectSen__Categ__66603565" Association="TIOTModel.FK__ObjectSen__Categ__66603565">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="ObjectSensor" EntitySet="ObjectSensors" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Login__ClientID__3E52440B" Association="TIOTModel.FK__Login__ClientID__3E52440B">
+      <End Role="Client" EntitySet="Clients" />
+      <End Role="Login" EntitySet="Logins" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OBJECTS__ClientI__49C3F6B7" Association="TIOTModel.FK__OBJECTS__ClientI__49C3F6B7">
+      <End Role="Client" EntitySet="Clients" />
+      <End Role="OBJECT" EntitySet="OBJECTS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CommandExecuteHistory_Command" Association="TIOTModel.FK_CommandExecuteHistory_Command">
+      <End Role="Command" EntitySet="Commands" />
+      <End Role="CommandExecuteHistory" EntitySet="CommandExecuteHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CommandsQueue_Command" Association="TIOTModel.FK_CommandsQueue_Command">
+      <End Role="Command" EntitySet="Commands" />
+      <End Role="ObjectCommand" EntitySet="ObjectCommands" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ObjectCommands_Command" Association="TIOTModel.FK_ObjectCommands_Command">
+      <End Role="Command" EntitySet="Commands" />
+      <End Role="CommandsQueue" EntitySet="CommandsQueues" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CommandExecuteHistory_OBJECTS" Association="TIOTModel.FK_CommandExecuteHistory_OBJECTS">
+      <End Role="OBJECT" EntitySet="OBJECTS" />
+      <End Role="CommandExecuteHistory" EntitySet="CommandExecuteHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ObjectCommands_OBJECTS" Association="TIOTModel.FK_ObjectCommands_OBJECTS">
+      <End Role="OBJECT" EntitySet="OBJECTS" />
+      <End Role="CommandsQueue" EntitySet="CommandsQueues" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EventConf__Objec__3CE9E9DD" Association="TIOTModel.FK__EventConf__Objec__3CE9E9DD">
+      <End Role="ObjectSensor" EntitySet="ObjectSensors" />
+      <End Role="EventConfiguration" EntitySet="EventConfigurations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EventConf__Objec__3ED2324F" Association="TIOTModel.FK__EventConf__Objec__3ED2324F">
+      <End Role="OBJECT" EntitySet="OBJECTS" />
+      <End Role="EventConfiguration" EntitySet="EventConfigurations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EventLog__Object__2FCF1A8A" Association="TIOTModel.FK__EventLog__Object__2FCF1A8A">
+      <End Role="OBJECT" EntitySet="OBJECTS" />
+      <End Role="EventLog" EntitySet="EventLogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EventLog__Object__30C33EC3" Association="TIOTModel.FK__EventLog__Object__30C33EC3">
+      <End Role="ObjectSensor" EntitySet="ObjectSensors" />
+      <End Role="EventLog" EntitySet="EventLogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__LoginFeat__Featu__48E5AC6E" Association="TIOTModel.FK__LoginFeat__Featu__48E5AC6E">
+      <End Role="Feature" EntitySet="Features" />
+      <End Role="LoginFeature" EntitySet="LoginFeatures" />
+    </AssociationSet>
+    <AssociationSet Name="FK__LoginGrou__Group__412EB0B6" Association="TIOTModel.FK__LoginGrou__Group__412EB0B6">
+      <End Role="Group" EntitySet="Groups" />
+      <End Role="LoginGroup" EntitySet="LoginGroups" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ObjectGro__Group__440B1D61" Association="TIOTModel.FK__ObjectGro__Group__440B1D61">
+      <End Role="Group" EntitySet="Groups" />
+      <End Role="ObjectGroup" EntitySet="ObjectGroups" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Login__RoleID__3F466844" Association="TIOTModel.FK__Login__RoleID__3F466844">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="Login" EntitySet="Logins" />
+    </AssociationSet>
+    <AssociationSet Name="FK__LoginFeat__Login__47F18835" Association="TIOTModel.FK__LoginFeat__Login__47F18835">
+      <End Role="Login" EntitySet="Logins" />
+      <End Role="LoginFeature" EntitySet="LoginFeatures" />
+    </AssociationSet>
+    <AssociationSet Name="FK__LoginGrou__Login__4316F928" Association="TIOTModel.FK__LoginGrou__Login__4316F928">
+      <End Role="Login" EntitySet="Logins" />
+      <End Role="LoginGroup" EntitySet="LoginGroups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CommandsQueue_OBJECTS" Association="TIOTModel.FK_CommandsQueue_OBJECTS">
+      <End Role="OBJECT" EntitySet="OBJECTS" />
+      <End Role="ObjectCommand" EntitySet="ObjectCommands" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ObjectGro__Objec__46E78A0C" Association="TIOTModel.FK__ObjectGro__Objec__46E78A0C">
+      <End Role="OBJECT" EntitySet="OBJECTS" />
+      <End Role="ObjectGroup" EntitySet="ObjectGroups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ObjectLastStatus_OBJECTS" Association="TIOTModel.FK_ObjectLastStatus_OBJECTS">
+      <End Role="OBJECT" EntitySet="OBJECTS" />
+      <End Role="ObjectLastStatu" EntitySet="ObjectLastStatus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ObjectLastStatus_PMessage" Association="TIOTModel.FK_ObjectLastStatus_PMessage">
+      <End Role="PMessage" EntitySet="PMessages" />
+      <End Role="ObjectLastStatu" EntitySet="ObjectLastStatus" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ObjectSen__Objec__6383C8BA" Association="TIOTModel.FK__ObjectSen__Objec__6383C8BA">
+      <End Role="OBJECT" EntitySet="OBJECTS" />
+      <End Role="ObjectSensor" EntitySet="ObjectSensors" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ObjectSen__Objec__6754599E" Association="TIOTModel.FK__ObjectSen__Objec__6754599E">
+      <End Role="OBJECT" EntitySet="OBJECTS" />
+      <End Role="ObjectSensor" EntitySet="ObjectSensors" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ObjectSen__Senso__6477ECF3" Association="TIOTModel.FK__ObjectSen__Senso__6477ECF3">
+      <End Role="Sensor" EntitySet="Sensors" />
+      <End Role="ObjectSensor" EntitySet="ObjectSensors" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ObjectSen__Senso__68487DD7" Association="TIOTModel.FK__ObjectSen__Senso__68487DD7">
+      <End Role="Sensor" EntitySet="Sensors" />
+      <End Role="ObjectSensor" EntitySet="ObjectSensors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PMDATA_ObjectSensors" Association="TIOTModel.FK_PMDATA_ObjectSensors">
+      <End Role="ObjectSensor" EntitySet="ObjectSensors" />
+      <End Role="PMDATA" EntitySet="PMDATAs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SensorInterpretation_ObjectSensors" Association="TIOTModel.FK_SensorInterpretation_ObjectSensors">
+      <End Role="ObjectSensor" EntitySet="ObjectSensors" />
+      <End Role="SensorInterpretation" EntitySet="SensorInterpretations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PMDATA_PMessage" Association="TIOTModel.FK_PMDATA_PMessage">
+      <End Role="PMessage" EntitySet="PMessages" />
+      <End Role="PMDATA" EntitySet="PMDATAs" />
+    </AssociationSet>
+    <FunctionImport Name="uspGET_ObjectIDNameByGroup" ReturnType="Collection(TIOTModel.uspGET_ObjectIDNameByGroup_Result)">
+      <Parameter Name="GroupID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="uspGet_EquipmentConsumptionByDT" ReturnType="Collection(TIOTModel.uspGet_EquipmentConsumptionByDT_Result)">
+      <Parameter Name="ObjectID" Mode="In" Type="Int32" />
+      <Parameter Name="StartDate" Mode="In" Type="DateTime" />
+      <Parameter Name="EndDate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <EntitySet Name="CommandLogByUserIDs" EntityType="TIOTModel.CommandLogByUserID" />
+    <EntitySet Name="ObjectAlertStatus" EntityType="TIOTModel.ObjectAlertStatu" />
+  </EntityContainer>
+  <ComplexType Name="SP_EquipmentControlingReport_Result">
+    <Property Type="String" Name="SourceName" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="ObjectID" Nullable="true" />
+    <Property Type="String" Name="VALUE" Nullable="false" />
+    <Property Type="DateTime" Name="DateTimeStamp" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="sp_GetConsumptionTillPackTime_Result">
+    <Property Type="String" Name="SourceName" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="SEN" Nullable="false" />
+    <Property Type="String" Name="value" Nullable="false" />
+    <Property Type="DateTime" Name="ReceivedDateTimeStamp" Nullable="false" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="sp_getdemo_Result">
+    <Property Type="String" Name="SourceName" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="SEN" Nullable="false" />
+    <Property Type="Int32" Name="Name" Nullable="true" />
+    <Property Type="String" Name="value" Nullable="false" />
+    <Property Type="String" Name="SourceName1" Nullable="false" MaxLength="50" />
+    <Property Type="DateTime" Name="ReceivedDateTimeStamp" Nullable="false" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="sp_GetFeulLastStatus_Read_Result">
+    <Property Type="Int32" Name="SensorID" Nullable="true" />
+    <Property Type="Int64" Name="EventLogID" Nullable="false" />
+    <Property Type="Int64" Name="PMID" Nullable="true" />
+    <Property Type="Int64" Name="PMDATAID" Nullable="true" />
+    <Property Type="Int32" Name="ObjectID" Nullable="true" />
+    <Property Type="DateTime" Name="DeviceDateTime" Nullable="true" Precision="23" />
+    <Property Type="Int64" Name="ObjectSensorId" Nullable="true" />
+    <Property Type="String" Name="VALUE" Nullable="true" />
+    <Property Type="Boolean" Name="Valid" Nullable="true" />
+    <Property Type="DateTime" Name="DateTimeStamp" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="sp_GetNONAlertState_Result">
+    <Property Type="Int64" Name="CommandHistoryID" Nullable="false" />
+    <Property Type="Int32" Name="ObjectId" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="DateTimeStamp" Nullable="false" Precision="23" />
+    <Property Type="String" Name="EmailNo_1" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="CommandsQueueID" Nullable="false" />
+    <Property Type="Int32" Name="CommandID" Nullable="false" />
+    <Property Type="String" Name="Response" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="AlertState" Nullable="true" />
+    <Property Type="String" Name="DeviceName" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="sp_GetNonAssignedObjSenForSchd_Result">
+    <Property Type="Int64" Name="ObjectSensorID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="sp_GetObjectSensors_Result">
+    <Property Type="Int64" Name="objectsensorid" Nullable="false" />
+    <Property Type="Int32" Name="sensorid" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="sp_GetSchedulingByObjAndDay_Result">
+    <Property Type="Int32" Name="SchedulingId" Nullable="false" />
+    <Property Type="String" Name="DaysName" Nullable="true" />
+    <Property Type="String" Name="StartTime" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="EndTime" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Days" Nullable="true" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="ObjectSensorId" Nullable="true" />
+    <Property Type="Boolean" Name="EnableOrDisable" Nullable="true" />
+    <Property Type="Int32" Name="sensorID" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_GetSchedulingByObjAndDayAndObS_Result">
+    <Property Type="Int32" Name="SchedulingId" Nullable="false" />
+    <Property Type="String" Name="DaysName" Nullable="true" />
+    <Property Type="String" Name="StartTime" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="EndTime" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Days" Nullable="true" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="ObjectSensorId" Nullable="true" />
+    <Property Type="Boolean" Name="EnableOrDisable" Nullable="true" />
+    <Property Type="Int32" Name="sensorID" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_GetSchedulingByObjAndObjSenIdForWeek_Result">
+    <Property Type="Int32" Name="SchedulingId" Nullable="false" />
+    <Property Type="String" Name="DaysName" Nullable="true" />
+    <Property Type="String" Name="StartTime" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="EndTime" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Days" Nullable="true" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="ObjectSensorId" Nullable="true" />
+    <Property Type="Boolean" Name="EnableOrDisable" Nullable="true" />
+    <Property Type="Int32" Name="sensorID" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_SensorData_Read_Result">
+    <Property Type="Int64" Name="PMID" Nullable="false" />
+    <Property Type="DateTime" Name="DeviceDateTime" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="ObjectID" Nullable="true" />
+    <Property Type="DateTime" Name="ReceivedDateTimeStamp" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="SensorId" Nullable="true" />
+    <Property Type="String" Name="VALUE" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="sp_TemperatureSensorByObject_Result">
+    <Property Type="String" Name="SourceName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+    <Property Type="Double" Name="avg" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_ObjectLastStatus_Read_UPDATED_Result">
+    <Property Type="Int32" Name="ObjectID" Nullable="true" />
+    <Property Type="Int64" Name="pmid" Nullable="false" />
+    <Property Type="DateTime" Name="ReceivedDateTimeStamp" Nullable="false" Precision="23" />
+    <Property Type="DateTime" Name="DeviceDateTime" Nullable="false" Precision="23" />
+    <Property Type="String" Name="VALUE" Nullable="false" />
+    <Property Type="String" Name="SensorName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="SourceName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Unit" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="CategoryName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Address" Nullable="false" MaxLength="50" />
+    <Property Type="Boolean" Name="RelayStatus" Nullable="true" />
+    <Property Type="Int32" Name="SensorID" Nullable="false" />
+    <Property Type="Int32" Name="TavlClient" Nullable="true" />
+    <Property Type="Int32" Name="TavlGroup" Nullable="true" />
+    <Property Type="Boolean" Name="TavlStatus" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_smslog_obj_sensor_Result">
+    <Property Type="String" Name="Device" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Location" Nullable="true" MaxLength="100" />
+    <Property Type="Double" Name="Sensor" Nullable="true" />
+    <Property Type="DateTime" Name="Variatoin_Time" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="SensorID" Nullable="true" />
+    <Property Type="String" Name="SensorName" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="sp_GetCurrentdateControlling_Result">
+    <Property Type="Int32" Name="ObjectID" Nullable="true" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Status" Nullable="false" />
+    <Property Type="Int32" Name="Fault" Nullable="false" />
+    <Property Type="DateTime" Name="StartTime" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="EndTime" Nullable="true" Precision="23" />
+    <Property Type="String" Name="TotalTime" Nullable="true" MaxLength="17" />
+    <Property Type="Int32" Name="SensorID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="sp_GetCurrentdateConsumption_Result">
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="100" />
+    <Property Type="Double" Name="Value" Nullable="true" />
+    <Property Type="Int32" Name="sensorId" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_EventLogbyObjectDT_Result">
+    <Property Type="Int32" Name="ObjectID" Nullable="true" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Location" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Value" Nullable="true" />
+    <Property Type="Int32" Name="SensorID" Nullable="true" />
+    <Property Type="DateTime" Name="DateTimeStamp" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="sp_EventConfig_LocationByObjID_Result">
+    <Property Type="Int64" Name="objectsensorId" Nullable="false" />
+    <Property Type="String" Name="Location" Nullable="true" MaxLength="151" />
+    <Property Type="Int32" Name="sensorId" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="usp_GetObjectLastRelayStatus_Result">
+    <Property Type="Int64" Name="PMID" Nullable="true" />
+    <Property Type="Int64" Name="ObjectSensorId" Nullable="true" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Current" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="Voltage" Nullable="false" MaxLength="1" />
+    <Property Type="Boolean" Name="Fault" Nullable="true" />
+    <Property Type="Boolean" Name="Status" Nullable="true" />
+    <Property Type="DateTime" Name="DateTimeStamp" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="SensorId" Nullable="true" />
+    <Property Type="String" Name="Category" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="uspREPORT_DinState1_Result">
+    <Property Type="Int64" Name="ObjectsensorID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Status" Nullable="false" />
+    <Property Type="DateTime" Name="StartTime" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="EndTime" Nullable="true" Precision="23" />
+    <Property Type="String" Name="TotalTime" Nullable="true" MaxLength="17" />
+  </ComplexType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EnableORDisable" Type="Boolean" Nullable="false" />
+    <Property Name="Deleted" Type="Boolean" />
+    <Property Name="Min" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="Max" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ObjectSensors" Relationship="TIOTModel.FK__ObjectSen__Categ__628FA481" FromRole="Category" ToRole="ObjectSensor" />
+    <NavigationProperty Name="ObjectSensors1" Relationship="TIOTModel.FK__ObjectSen__Categ__66603565" FromRole="Category" ToRole="ObjectSensor" />
+    <Property Name="ImgPath" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="ClientID" />
+    </Key>
+    <Property Name="ClientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="OperatorID" Type="Int32" Nullable="false" />
+    <Property Name="Contact" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Code" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Enabled" Type="Boolean" Nullable="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ExpireDate" Type="DateTime" Precision="3" />
+    <Property Name="Deleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Logins" Relationship="TIOTModel.FK__Login__ClientID__3E52440B" FromRole="Client" ToRole="Login" />
+    <NavigationProperty Name="OBJECTS" Relationship="TIOTModel.FK__OBJECTS__ClientI__49C3F6B7" FromRole="Client" ToRole="OBJECT" />
+  </EntityType>
+  <EntityType Name="Command">
+    <Key>
+      <PropertyRef Name="CommandID" />
+    </Key>
+    <Property Name="CommandID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Parameter" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DeviceType" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Comment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CommandExecuteHistories" Relationship="TIOTModel.FK_CommandExecuteHistory_Command" FromRole="Command" ToRole="CommandExecuteHistory" />
+    <NavigationProperty Name="ObjectCommands" Relationship="TIOTModel.FK_CommandsQueue_Command" FromRole="Command" ToRole="ObjectCommand" />
+    <NavigationProperty Name="CommandsQueues" Relationship="TIOTModel.FK_ObjectCommands_Command" FromRole="Command" ToRole="CommandsQueue" />
+  </EntityType>
+  <EntityType Name="CommandExecuteHistory">
+    <Key>
+      <PropertyRef Name="CommandExecuteHistoryID" />
+    </Key>
+    <Property Name="CommandExecuteHistoryID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ObjectId" Type="Int32" Nullable="false" />
+    <Property Name="CommandID" Type="Int32" Nullable="false" />
+    <Property Name="Response" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ExecutedBy" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+    <NavigationProperty Name="Command" Relationship="TIOTModel.FK_CommandExecuteHistory_Command" FromRole="CommandExecuteHistory" ToRole="Command" />
+    <NavigationProperty Name="OBJECT" Relationship="TIOTModel.FK_CommandExecuteHistory_OBJECTS" FromRole="CommandExecuteHistory" ToRole="OBJECT" />
+  </EntityType>
+  <EntityType Name="CommandHistory">
+    <Key>
+      <PropertyRef Name="CommandHistoryID" />
+    </Key>
+    <Property Name="CommandHistoryID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ObjectId" Type="Int32" Nullable="false" />
+    <Property Name="Source" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Comment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DateTimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CommandsQueueID" Type="Int32" Nullable="false" />
+    <Property Name="CommandID" Type="Int32" Nullable="false" />
+    <Property Name="Response" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="StateSMS" Type="Int32" />
+    <Property Name="AlertState" Type="Int32" />
+  </EntityType>
+  <EntityType Name="CommandsQueue">
+    <Key>
+      <PropertyRef Name="CommandsQueueID" />
+    </Key>
+    <Property Name="CommandsQueueID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ObjectID" Type="Int32" Nullable="false" />
+    <Property Name="CommandID" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UnderProcess" Type="Boolean" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Command" Relationship="TIOTModel.FK_ObjectCommands_Command" FromRole="CommandsQueue" ToRole="Command" />
+    <NavigationProperty Name="OBJECT" Relationship="TIOTModel.FK_ObjectCommands_OBJECTS" FromRole="CommandsQueue" ToRole="OBJECT" />
+  </EntityType>
+  <EntityType Name="CustomNotification">
+    <Key>
+      <PropertyRef Name="NotificationID" />
+    </Key>
+    <Property Name="NotificationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DateTime" Type="DateTime" Precision="3" />
+    <Property Name="ClientID" Type="Int32" />
+    <Property Name="ObjectID" Type="Int32" />
+    <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="State" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="EquipmentScheduling">
+    <Key>
+      <PropertyRef Name="SchedulingID" />
+    </Key>
+    <Property Name="SchedulingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ObjectId" Type="Int32" />
+    <Property Name="StartTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EndTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Days" Type="Int32" />
+    <Property Name="ObjectSensorId" Type="Int32" />
+    <Property Name="EnableOrDisable" Type="Boolean" />
+    <Property Name="DaysName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="EventConfigLog">
+    <Key>
+      <PropertyRef Name="ECLID" />
+    </Key>
+    <Property Name="ECLID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ObjectID" Type="Int32" />
+    <Property Name="ObjectSensorID" Type="Int32" />
+    <Property Name="SensorID" Type="Int32" />
+    <Property Name="Value" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="Condition" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="DateTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="ReceivedDateTime" Type="DateTime" Precision="3" />
+    <Property Name="PMID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="EventConfigTemp">
+    <Key>
+      <PropertyRef Name="ECTID" />
+    </Key>
+    <Property Name="ECTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ObjectSensorID" Type="Int32" />
+    <Property Name="Value" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="Condition" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Name="DateTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="PMID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="EventConfiguration">
+    <Key>
+      <PropertyRef Name="EventConfigID" />
+    </Key>
+    <Property Name="EventConfigID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ObjectSensorID" Type="Int64" />
+    <Property Name="ObjectID" Type="Int32" />
+    <Property Name="Min" Type="Double" Nullable="false" />
+    <Property Name="MAX" Type="Double" Nullable="false" />
+    <Property Name="Condition" Type="Int32" Nullable="false" />
+    <Property Name="EnableOrDisable" Type="Boolean" />
+    <Property Name="A0" Type="Double" />
+    <Property Name="A1" Type="Double" />
+    <Property Name="Contact" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Units" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
+    <Property Name="Format" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ObjectSensor" Relationship="TIOTModel.FK__EventConf__Objec__3CE9E9DD" FromRole="EventConfiguration" ToRole="ObjectSensor" />
+    <NavigationProperty Name="OBJECT" Relationship="TIOTModel.FK__EventConf__Objec__3ED2324F" FromRole="EventConfiguration" ToRole="OBJECT" />
+  </EntityType>
+  <EntityType Name="EventLog">
+    <Key>
+      <PropertyRef Name="EventLogID" />
+    </Key>
+    <Property Name="EventLogID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PMID" Type="Int64" />
+    <Property Name="PMDATAID" Type="Int64" />
+    <Property Name="ObjectID" Type="Int32" />
+    <Property Name="DeviceDateTime" Type="DateTime" Precision="3" />
+    <Property Name="ObjectSensorId" Type="Int64" />
+    <Property Name="VALUE" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SensorID" Type="Int32" />
+    <Property Name="Valid" Type="Boolean" />
+    <Property Name="DateTimeStamp" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="OBJECT" Relationship="TIOTModel.FK__EventLog__Object__2FCF1A8A" FromRole="EventLog" ToRole="OBJECT" />
+    <NavigationProperty Name="ObjectSensor" Relationship="TIOTModel.FK__EventLog__Object__30C33EC3" FromRole="EventLog" ToRole="ObjectSensor" />
+  </EntityType>
+  <EntityType Name="EventSMSLog">
+    <Key>
+      <PropertyRef Name="ESLID" />
+    </Key>
+    <Property Name="ESLID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EventLogID" Type="Int32" />
+    <Property Name="Object" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
+    <Property Name="Location" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
+    <Property Name="CategoryId" Type="Int32" />
+    <Property Name="ObjectSensorID" Type="Int32" />
+    <Property Name="Value" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
+    <Property Name="Contact" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DateTimeStamp" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Feature">
+    <Key>
+      <PropertyRef Name="FeatureID" />
+    </Key>
+    <Property Name="FeatureID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Link" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ParentId" Type="Int32" />
+    <Property Name="Class" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EnableOrDisable" Type="Boolean" />
+    <NavigationProperty Name="LoginFeatures" Relationship="TIOTModel.FK__LoginFeat__Featu__48E5AC6E" FromRole="Feature" ToRole="LoginFeature" />
+  </EntityType>
+  <EntityType Name="FederalHoliday">
+    <Key>
+      <PropertyRef Name="HolidaysID" />
+    </Key>
+    <Property Name="HolidaysID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Holidays" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="FullDate" Type="DateTime" Precision="0" />
+    <Property Name="Enabled" Type="Boolean" />
+    <Property Name="GroupID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="FirmwareScheduling">
+    <Key>
+      <PropertyRef Name="FSID" />
+    </Key>
+    <Property Name="FSID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClientId" Type="Int32" />
+    <Property Name="ObjectId" Type="Int32" />
+    <Property Name="SimNumber" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+    <Property Name="Command" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ExecutionTime" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
+    <Property Name="DateTimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="Group">
+    <Key>
+      <PropertyRef Name="GroupID" />
+    </Key>
+    <Property Name="GroupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClientID" Type="Int32" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Comment" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Deleted" Type="Boolean" />
+    <NavigationProperty Name="LoginGroups" Relationship="TIOTModel.FK__LoginGrou__Group__412EB0B6" FromRole="Group" ToRole="LoginGroup" />
+    <NavigationProperty Name="ObjectGroups" Relationship="TIOTModel.FK__ObjectGro__Group__440B1D61" FromRole="Group" ToRole="ObjectGroup" />
+  </EntityType>
+  <EntityType Name="Login">
+    <Key>
+      <PropertyRef Name="LoginID" />
+    </Key>
+    <Property Name="LoginID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClientID" Type="Int32" />
+    <Property Name="RoleID" Type="Int32" />
+    <Property Name="User" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Comment" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Client" Relationship="TIOTModel.FK__Login__ClientID__3E52440B" FromRole="Login" ToRole="Client" />
+    <NavigationProperty Name="Role" Relationship="TIOTModel.FK__Login__RoleID__3F466844" FromRole="Login" ToRole="Role" />
+    <NavigationProperty Name="LoginFeatures" Relationship="TIOTModel.FK__LoginFeat__Login__47F18835" FromRole="Login" ToRole="LoginFeature" />
+    <NavigationProperty Name="LoginGroups" Relationship="TIOTModel.FK__LoginGrou__Login__4316F928" FromRole="Login" ToRole="LoginGroup" />
+    <Property Name="DisplayName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Enabled" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="LoginFeature">
+    <Key>
+      <PropertyRef Name="LoginFeatureID" />
+    </Key>
+    <Property Name="LoginFeatureID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LoginID" Type="Int32" Nullable="false" />
+    <Property Name="FeatureID" Type="Int32" Nullable="false" />
+    <Property Name="Enable" Type="Boolean" />
+    <NavigationProperty Name="Feature" Relationship="TIOTModel.FK__LoginFeat__Featu__48E5AC6E" FromRole="LoginFeature" ToRole="Feature" />
+    <NavigationProperty Name="Login" Relationship="TIOTModel.FK__LoginFeat__Login__47F18835" FromRole="LoginFeature" ToRole="Login" />
+  </EntityType>
+  <EntityType Name="LoginGroup">
+    <Key>
+      <PropertyRef Name="LoginGroupID" />
+    </Key>
+    <Property Name="LoginGroupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GroupID" Type="Int32" Nullable="false" />
+    <Property Name="LoginID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Group" Relationship="TIOTModel.FK__LoginGrou__Group__412EB0B6" FromRole="LoginGroup" ToRole="Group" />
+    <NavigationProperty Name="Login" Relationship="TIOTModel.FK__LoginGrou__Login__4316F928" FromRole="LoginGroup" ToRole="Login" />
+  </EntityType>
+  <EntityType Name="ObjectCommand">
+    <Key>
+      <PropertyRef Name="CommandsQueueID" />
+    </Key>
+    <Property Name="CommandsQueueID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ObjectID" Type="Int32" Nullable="false" />
+    <Property Name="CommandID" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="status" Type="Boolean" />
+    <NavigationProperty Name="Command" Relationship="TIOTModel.FK_CommandsQueue_Command" FromRole="ObjectCommand" ToRole="Command" />
+    <NavigationProperty Name="OBJECT" Relationship="TIOTModel.FK_CommandsQueue_OBJECTS" FromRole="ObjectCommand" ToRole="OBJECT" />
+  </EntityType>
+  <EntityType Name="ObjectGroup">
+    <Key>
+      <PropertyRef Name="ObjectGroupID" />
+    </Key>
+    <Property Name="ObjectGroupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ObjectID" Type="Int32" Nullable="false" />
+    <Property Name="GroupID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Group" Relationship="TIOTModel.FK__ObjectGro__Group__440B1D61" FromRole="ObjectGroup" ToRole="Group" />
+    <NavigationProperty Name="OBJECT" Relationship="TIOTModel.FK__ObjectGro__Objec__46E78A0C" FromRole="ObjectGroup" ToRole="OBJECT" />
+  </EntityType>
+  <EntityType Name="ObjectLastStatu">
+    <Key>
+      <PropertyRef Name="StatusID" />
+    </Key>
+    <Property Name="StatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PMID" Type="Int64" />
+    <Property Name="ObjectID" Type="Int32" />
+    <Property Name="DeviceIP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DeviceStatus" Type="Boolean" Nullable="false" />
+    <Property Name="ConnectionDatetime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Priority" Type="Int32" />
+    <Property Name="DevicePort" Type="Int32" Nullable="false" />
+    <Property Name="LastRecordReceived" Type="DateTime" Precision="3" />
+    <Property Name="LastUpdated" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="OBJECT" Relationship="TIOTModel.FK_ObjectLastStatus_OBJECTS" FromRole="ObjectLastStatu" ToRole="OBJECT" />
+    <NavigationProperty Name="PMessage" Relationship="TIOTModel.FK_ObjectLastStatus_PMessage" FromRole="ObjectLastStatu" ToRole="PMessage" />
+  </EntityType>
+  <EntityType Name="OBJECT">
+    <Key>
+      <PropertyRef Name="ObjectID" />
+    </Key>
+    <Property Name="ObjectID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LAT" Type="Double" Nullable="false" />
+    <Property Name="LONG" Type="Double" Nullable="false" />
+    <Property Name="IMEI" Type="Int64" Nullable="false" />
+    <Property Name="SimNumber" Type="Int64" Nullable="false" />
+    <Property Name="FirmWareVersion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HardwareVersion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EnableOrDisable" Type="Boolean" Nullable="false" />
+    <Property Name="ClientID" Type="Int32" />
+    <Property Name="Contact" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="RelayStatus" Type="Boolean" />
+    <Property Name="ObjectType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Deleted" Type="Boolean" />
+    <Property Name="DeleteDateTime" Type="DateTime" Precision="3" />
+    <Property Name="TavlClient" Type="Int32" />
+    <Property Name="TavlGroup" Type="Int32" />
+    <Property Name="TavlIP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TavlStatus" Type="Boolean" />
+    <Property Name="AttendanceClient" Type="Int32" />
+    <Property Name="AttendanceIP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AttendanceStatus" Type="Boolean" />
+    <Property Name="SurveillanceIP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SurveillanceStatus" Type="Boolean" />
+    <Property Name="CreatedDatetime" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Client" Relationship="TIOTModel.FK__OBJECTS__ClientI__49C3F6B7" FromRole="OBJECT" ToRole="Client" />
+    <NavigationProperty Name="CommandExecuteHistories" Relationship="TIOTModel.FK_CommandExecuteHistory_OBJECTS" FromRole="OBJECT" ToRole="CommandExecuteHistory" />
+    <NavigationProperty Name="CommandsQueues" Relationship="TIOTModel.FK_ObjectCommands_OBJECTS" FromRole="OBJECT" ToRole="CommandsQueue" />
+    <NavigationProperty Name="EventConfigurations" Relationship="TIOTModel.FK__EventConf__Objec__3ED2324F" FromRole="OBJECT" ToRole="EventConfiguration" />
+    <NavigationProperty Name="EventLogs" Relationship="TIOTModel.FK__EventLog__Object__2FCF1A8A" FromRole="OBJECT" ToRole="EventLog" />
+    <NavigationProperty Name="ObjectCommands" Relationship="TIOTModel.FK_CommandsQueue_OBJECTS" FromRole="OBJECT" ToRole="ObjectCommand" />
+    <NavigationProperty Name="ObjectGroups" Relationship="TIOTModel.FK__ObjectGro__Objec__46E78A0C" FromRole="OBJECT" ToRole="ObjectGroup" />
+    <NavigationProperty Name="ObjectLastStatus" Relationship="TIOTModel.FK_ObjectLastStatus_OBJECTS" FromRole="OBJECT" ToRole="ObjectLastStatu" />
+    <NavigationProperty Name="ObjectSensors" Relationship="TIOTModel.FK__ObjectSen__Objec__6383C8BA" FromRole="OBJECT" ToRole="ObjectSensor" />
+    <NavigationProperty Name="ObjectSensors1" Relationship="TIOTModel.FK__ObjectSen__Objec__6754599E" FromRole="OBJECT" ToRole="ObjectSensor" />
+  </EntityType>
+  <EntityType Name="ObjectSensor">
+    <Key>
+      <PropertyRef Name="ObjectSensorId" />
+    </Key>
+    <Property Name="ObjectSensorId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SensorID" Type="Int32" Nullable="false" />
+    <Property Name="ObjectID" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Enabled" Type="Boolean" />
+    <Property Name="SMSAlert" Type="Boolean" />
+    <Property Name="EmailAlert" Type="Boolean" />
+    <Property Name="A0" Type="Double" />
+    <Property Name="A1" Type="Double" />
+    <Property Name="Contact" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Min" Type="Int32" />
+    <Property Name="Max" Type="Int32" />
+    <Property Name="CategoryID" Type="Int32" />
+    <NavigationProperty Name="Category" Relationship="TIOTModel.FK__ObjectSen__Categ__628FA481" FromRole="ObjectSensor" ToRole="Category" />
+    <NavigationProperty Name="Category1" Relationship="TIOTModel.FK__ObjectSen__Categ__66603565" FromRole="ObjectSensor" ToRole="Category" />
+    <NavigationProperty Name="EventConfigurations" Relationship="TIOTModel.FK__EventConf__Objec__3CE9E9DD" FromRole="ObjectSensor" ToRole="EventConfiguration" />
+    <NavigationProperty Name="EventLogs" Relationship="TIOTModel.FK__EventLog__Object__30C33EC3" FromRole="ObjectSensor" ToRole="EventLog" />
+    <NavigationProperty Name="OBJECT" Relationship="TIOTModel.FK__ObjectSen__Objec__6383C8BA" FromRole="ObjectSensor" ToRole="OBJECT" />
+    <NavigationProperty Name="OBJECT1" Relationship="TIOTModel.FK__ObjectSen__Objec__6754599E" FromRole="ObjectSensor" ToRole="OBJECT" />
+    <NavigationProperty Name="Sensor" Relationship="TIOTModel.FK__ObjectSen__Senso__6477ECF3" FromRole="ObjectSensor" ToRole="Sensor" />
+    <NavigationProperty Name="Sensor1" Relationship="TIOTModel.FK__ObjectSen__Senso__68487DD7" FromRole="ObjectSensor" ToRole="Sensor" />
+    <NavigationProperty Name="PMDATAs" Relationship="TIOTModel.FK_PMDATA_ObjectSensors" FromRole="ObjectSensor" ToRole="PMDATA" />
+    <NavigationProperty Name="SensorInterpretations" Relationship="TIOTModel.FK_SensorInterpretation_ObjectSensors" FromRole="ObjectSensor" ToRole="SensorInterpretation" />
+  </EntityType>
+  <EntityType Name="PMDATA">
+    <Key>
+      <PropertyRef Name="PMDATAID" />
+    </Key>
+    <Property Name="PMDATAID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PMID" Type="Int64" />
+    <Property Name="ObjectSensorId" Type="Int64" />
+    <Property Name="VALUE" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DateTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="SensorId" Type="Int32" />
+    <NavigationProperty Name="ObjectSensor" Relationship="TIOTModel.FK_PMDATA_ObjectSensors" FromRole="PMDATA" ToRole="ObjectSensor" />
+    <NavigationProperty Name="PMessage" Relationship="TIOTModel.FK_PMDATA_PMessage" FromRole="PMDATA" ToRole="PMessage" />
+  </EntityType>
+  <EntityType Name="PMessage">
+    <Key>
+      <PropertyRef Name="PMID" />
+    </Key>
+    <Property Name="PMID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReceivedDateTimeStamp" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ObjectID" Type="Int32" />
+    <Property Name="Valid" Type="Boolean" Nullable="false" />
+    <Property Name="Deleted" Type="Boolean" />
+    <Property Name="DeleteDateTime" Type="DateTime" Precision="3" />
+    <Property Name="DeviceDateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DateTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="Record_Priority" Type="Int32" />
+    <NavigationProperty Name="ObjectLastStatus" Relationship="TIOTModel.FK_ObjectLastStatus_PMessage" FromRole="PMessage" ToRole="ObjectLastStatu" />
+    <NavigationProperty Name="PMDATAs" Relationship="TIOTModel.FK_PMDATA_PMessage" FromRole="PMessage" ToRole="PMDATA" />
+  </EntityType>
+  <EntityType Name="RelayNotification">
+    <Key>
+      <PropertyRef Name="RelaynotificationID" />
+    </Key>
+    <Property Name="RelaynotificationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DateTime" Type="DateTime" Precision="3" />
+    <Property Name="ClientID" Type="Int32" />
+    <Property Name="GroupID" Type="Int32" />
+    <Property Name="ObjectID" Type="Int32" />
+    <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="State" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="RoleID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Logins" Relationship="TIOTModel.FK__Login__RoleID__3F466844" FromRole="Role" ToRole="Login" />
+  </EntityType>
+  <EntityType Name="Scheduling">
+    <Key>
+      <PropertyRef Name="SchedulingID" />
+    </Key>
+    <Property Name="SchedulingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ObjectId" Type="Int32" Nullable="false" />
+    <Property Name="ScheduleTime" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CommandID" Type="Int32" Nullable="false" />
+    <Property Name="EnableOrDisable" Type="Boolean" />
+    <Property Name="Days" Type="Int32" />
+  </EntityType>
+  <EntityType Name="SensorInterpretation">
+    <Key>
+      <PropertyRef Name="SensorInterpretationId" />
+    </Key>
+    <Property Name="SensorInterpretationId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ObjectSensorId" Type="Int64" Nullable="false" />
+    <Property Name="MinValue" Type="Double" Nullable="false" />
+    <Property Name="MaxValue" Type="Double" Nullable="false" />
+    <Property Name="Meaning" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ObjectSensor" Relationship="TIOTModel.FK_SensorInterpretation_ObjectSensors" FromRole="SensorInterpretation" ToRole="ObjectSensor" />
+  </EntityType>
+  <EntityType Name="Sensor">
+    <Key>
+      <PropertyRef Name="SensorID" />
+    </Key>
+    <Property Name="SensorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SourceID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SourceName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Unit" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EnableOrDisable" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="ObjectSensors" Relationship="TIOTModel.FK__ObjectSen__Senso__6477ECF3" FromRole="Sensor" ToRole="ObjectSensor" />
+    <NavigationProperty Name="ObjectSensors1" Relationship="TIOTModel.FK__ObjectSen__Senso__68487DD7" FromRole="Sensor" ToRole="ObjectSensor" />
+  </EntityType>
+  <EntityType Name="SMS_SentLog">
+    <Key>
+      <PropertyRef Name="LogID" />
+    </Key>
+    <Property Name="LogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ObjectSensorID" Type="Int32" />
+    <Property Name="ObjectID" Type="Int32" />
+    <Property Name="SensorID" Type="Int32" />
+    <Property Name="Value" Type="Double" />
+    <Property Name="Condition" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DateTime" Type="DateTime" Precision="3" />
+    <Property Name="PMID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="smsDinStatetemp">
+    <Key>
+      <PropertyRef Name="DinId" />
+    </Key>
+    <Property Name="DinId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PMID" Type="Int32" />
+    <Property Name="ObjectsensorId" Type="Int32" />
+    <Property Name="Value" Type="Boolean" />
+    <Property Name="Condition" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DatetimeStamp" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="SMSLogTempTable">
+    <Key>
+      <PropertyRef Name="SMSLogID" />
+    </Key>
+    <Property Name="SMSLogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ObjectSensorID" Type="Int32" />
+    <Property Name="ObjectID" Type="Int32" />
+    <Property Name="SensorID" Type="Int32" />
+    <Property Name="Value" Type="Double" />
+    <Property Name="Condition" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DateTime" Type="DateTime" Precision="3" />
+    <Property Name="PMID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="StatusId" />
+    </Key>
+    <Property Name="StatusId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="SwitchesReport">
+    <Key>
+      <PropertyRef Name="SwitchID" />
+    </Key>
+    <Property Name="SwitchID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ObjectID" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Current" Type="Double" />
+    <Property Name="Voltage" Type="Double" />
+    <Property Name="Power" Type="Double" />
+    <Property Name="Unit" Type="Double" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="Fault" Type="Boolean" />
+    <Property Name="TotalTime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TotalTime_Decimal" Type="Double" />
+    <Property Name="StartTime" Type="DateTime" Precision="3" />
+    <Property Name="EndTime" Type="DateTime" Precision="3" />
+    <Property Name="C_SensorId" Type="Int32" />
+    <Property Name="V_SensorId" Type="Int32" />
+    <Property Name="S_SensorId" Type="Int32" />
+    <Property Name="DateTimeStamp" Type="DateTime" Precision="0" />
+    <Property Name="LocationID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="ConsumptionReport">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SensorID" Type="Int32" />
+    <Property Name="Volt" Type="Double" />
+    <Property Name="Cur" Type="Double" />
+    <Property Name="Power" Type="Double" />
+    <Property Name="DateTime" Type="DateTime" Precision="0" />
+    <Property Name="ObjectID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ControllingReport">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SensorName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="StartTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EndTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TotalDuration" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DateTime" Type="DateTime" Precision="0" />
+    <Property Name="ObjectID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="DigitalInputLog">
+    <Key>
+      <PropertyRef Name="LogID" />
+    </Key>
+    <Property Name="LogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ObjectSensorID" Type="Int32" />
+    <Property Name="ObjectID" Type="Int32" />
+    <Property Name="SensorID" Type="Int32" />
+    <Property Name="Value" Type="Double" />
+    <Property Name="Condition" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DateTime" Type="DateTime" Precision="3" />
+    <Property Name="PMID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="DigitalInputTemp">
+    <Key>
+      <PropertyRef Name="DinId" />
+    </Key>
+    <Property Name="DinId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PMID" Type="Int32" />
+    <Property Name="ObjectsensorId" Type="Int32" />
+    <Property Name="Value" Type="Boolean" />
+    <Property Name="Condition" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DatetimeStamp" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ReportConsumption">
+    <Key>
+      <PropertyRef Name="ConsumptionID" />
+    </Key>
+    <Property Name="ConsumptionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SensorID" Type="Int32" />
+    <Property Name="Average" Type="Double" />
+    <Property Name="DeviceName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SensorName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DayDate" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="ReportControlling">
+    <Key>
+      <PropertyRef Name="ControllingID" />
+    </Key>
+    <Property Name="ControllingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SourceName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ObjectID" Type="Int32" />
+    <Property Name="Value" Type="Int32" />
+    <Property Name="DateTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="SensorName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="SensorCommand">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CommandID" Type="Int32" />
+    <Property Name="SensorID" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Route" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RelayStatus" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="SensorControlling">
+    <Key>
+      <PropertyRef Name="SCID" />
+    </Key>
+    <Property Name="SCID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ObjectID" Type="Int32" />
+    <Property Name="ObjectSensorID" Type="Int32" />
+    <Property Name="Min" Type="Double" />
+    <Property Name="Max" Type="Double" />
+    <Property Name="Condition" Type="Int32" />
+    <Property Name="OnCommandID" Type="Int32" />
+    <Property Name="OffCommandID" Type="Int32" />
+    <Property Name="LocationID" Type="Int32" />
+    <Property Name="RelayStatus" Type="Boolean" />
+    <Property Name="Enabled" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="SensorObjectGroup">
+    <Key>
+      <PropertyRef Name="SensorObjectGroupID" />
+    </Key>
+    <Property Name="SensorObjectGroupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ROUT" Type="Int32" />
+    <Property Name="ROUTCurrent" Type="Int32" />
+    <Property Name="ROUTVoltage" Type="Int32" />
+    <Property Name="ROUTStatus" Type="Int32" />
+    <Property Name="ROUTFault" Type="Int32" />
+  </EntityType>
+  <EntityType Name="TempSwitchReport">
+    <Key>
+      <PropertyRef Name="TempId" />
+    </Key>
+    <Property Name="TempId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ObjectId" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="55" FixedLength="false" Unicode="true" />
+    <Property Name="Current" Type="Double" />
+    <Property Name="Voltage" Type="Double" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="Fault" Type="Boolean" />
+    <Property Name="StartTime" Type="DateTime" Precision="3" />
+    <Property Name="EndTime" Type="DateTime" Precision="3" />
+    <Property Name="C_SensorId" Type="Int32" />
+    <Property Name="V_SensorId" Type="Int32" />
+    <Property Name="S_SensorId" Type="Int32" />
+    <Property Name="LocationID" Type="Int32" />
+  </EntityType>
+  <Association Name="FK__ObjectSen__Categ__628FA481">
+    <End Type="TIOTModel.Category" Role="Category" Multiplicity="0..1" />
+    <End Type="TIOTModel.ObjectSensor" Role="ObjectSensor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="ObjectSensor">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ObjectSen__Categ__66603565">
+    <End Type="TIOTModel.Category" Role="Category" Multiplicity="0..1" />
+    <End Type="TIOTModel.ObjectSensor" Role="ObjectSensor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="ObjectSensor">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Login__ClientID__3E52440B">
+    <End Type="TIOTModel.Client" Role="Client" Multiplicity="0..1" />
+    <End Type="TIOTModel.Login" Role="Login" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="ClientID" />
+      </Principal>
+      <Dependent Role="Login">
+        <PropertyRef Name="ClientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OBJECTS__ClientI__49C3F6B7">
+    <End Type="TIOTModel.Client" Role="Client" Multiplicity="0..1" />
+    <End Type="TIOTModel.OBJECT" Role="OBJECT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="ClientID" />
+      </Principal>
+      <Dependent Role="OBJECT">
+        <PropertyRef Name="ClientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CommandExecuteHistory_Command">
+    <End Type="TIOTModel.Command" Role="Command" Multiplicity="1" />
+    <End Type="TIOTModel.CommandExecuteHistory" Role="CommandExecuteHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Command">
+        <PropertyRef Name="CommandID" />
+      </Principal>
+      <Dependent Role="CommandExecuteHistory">
+        <PropertyRef Name="CommandID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CommandsQueue_Command">
+    <End Type="TIOTModel.Command" Role="Command" Multiplicity="1" />
+    <End Type="TIOTModel.ObjectCommand" Role="ObjectCommand" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Command">
+        <PropertyRef Name="CommandID" />
+      </Principal>
+      <Dependent Role="ObjectCommand">
+        <PropertyRef Name="CommandID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ObjectCommands_Command">
+    <End Type="TIOTModel.Command" Role="Command" Multiplicity="1" />
+    <End Type="TIOTModel.CommandsQueue" Role="CommandsQueue" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Command">
+        <PropertyRef Name="CommandID" />
+      </Principal>
+      <Dependent Role="CommandsQueue">
+        <PropertyRef Name="CommandID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CommandExecuteHistory_OBJECTS">
+    <End Type="TIOTModel.OBJECT" Role="OBJECT" Multiplicity="1" />
+    <End Type="TIOTModel.CommandExecuteHistory" Role="CommandExecuteHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OBJECT">
+        <PropertyRef Name="ObjectID" />
+      </Principal>
+      <Dependent Role="CommandExecuteHistory">
+        <PropertyRef Name="ObjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ObjectCommands_OBJECTS">
+    <End Type="TIOTModel.OBJECT" Role="OBJECT" Multiplicity="1" />
+    <End Type="TIOTModel.CommandsQueue" Role="CommandsQueue" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OBJECT">
+        <PropertyRef Name="ObjectID" />
+      </Principal>
+      <Dependent Role="CommandsQueue">
+        <PropertyRef Name="ObjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EventConf__Objec__3CE9E9DD">
+    <End Type="TIOTModel.ObjectSensor" Role="ObjectSensor" Multiplicity="0..1" />
+    <End Type="TIOTModel.EventConfiguration" Role="EventConfiguration" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ObjectSensor">
+        <PropertyRef Name="ObjectSensorId" />
+      </Principal>
+      <Dependent Role="EventConfiguration">
+        <PropertyRef Name="ObjectSensorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EventConf__Objec__3ED2324F">
+    <End Type="TIOTModel.OBJECT" Role="OBJECT" Multiplicity="0..1" />
+    <End Type="TIOTModel.EventConfiguration" Role="EventConfiguration" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OBJECT">
+        <PropertyRef Name="ObjectID" />
+      </Principal>
+      <Dependent Role="EventConfiguration">
+        <PropertyRef Name="ObjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EventLog__Object__2FCF1A8A">
+    <End Type="TIOTModel.OBJECT" Role="OBJECT" Multiplicity="0..1" />
+    <End Type="TIOTModel.EventLog" Role="EventLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OBJECT">
+        <PropertyRef Name="ObjectID" />
+      </Principal>
+      <Dependent Role="EventLog">
+        <PropertyRef Name="ObjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EventLog__Object__30C33EC3">
+    <End Type="TIOTModel.ObjectSensor" Role="ObjectSensor" Multiplicity="0..1" />
+    <End Type="TIOTModel.EventLog" Role="EventLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ObjectSensor">
+        <PropertyRef Name="ObjectSensorId" />
+      </Principal>
+      <Dependent Role="EventLog">
+        <PropertyRef Name="ObjectSensorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__LoginFeat__Featu__48E5AC6E">
+    <End Type="TIOTModel.Feature" Role="Feature" Multiplicity="1" />
+    <End Type="TIOTModel.LoginFeature" Role="LoginFeature" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Feature">
+        <PropertyRef Name="FeatureID" />
+      </Principal>
+      <Dependent Role="LoginFeature">
+        <PropertyRef Name="FeatureID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__LoginGrou__Group__412EB0B6">
+    <End Type="TIOTModel.Group" Role="Group" Multiplicity="1" />
+    <End Type="TIOTModel.LoginGroup" Role="LoginGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Group">
+        <PropertyRef Name="GroupID" />
+      </Principal>
+      <Dependent Role="LoginGroup">
+        <PropertyRef Name="GroupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ObjectGro__Group__440B1D61">
+    <End Type="TIOTModel.Group" Role="Group" Multiplicity="1" />
+    <End Type="TIOTModel.ObjectGroup" Role="ObjectGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Group">
+        <PropertyRef Name="GroupID" />
+      </Principal>
+      <Dependent Role="ObjectGroup">
+        <PropertyRef Name="GroupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Login__RoleID__3F466844">
+    <End Type="TIOTModel.Role" Role="Role" Multiplicity="0..1" />
+    <End Type="TIOTModel.Login" Role="Login" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="RoleID" />
+      </Principal>
+      <Dependent Role="Login">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__LoginFeat__Login__47F18835">
+    <End Type="TIOTModel.Login" Role="Login" Multiplicity="1" />
+    <End Type="TIOTModel.LoginFeature" Role="LoginFeature" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Login">
+        <PropertyRef Name="LoginID" />
+      </Principal>
+      <Dependent Role="LoginFeature">
+        <PropertyRef Name="LoginID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__LoginGrou__Login__4316F928">
+    <End Type="TIOTModel.Login" Role="Login" Multiplicity="1" />
+    <End Type="TIOTModel.LoginGroup" Role="LoginGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Login">
+        <PropertyRef Name="LoginID" />
+      </Principal>
+      <Dependent Role="LoginGroup">
+        <PropertyRef Name="LoginID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CommandsQueue_OBJECTS">
+    <End Type="TIOTModel.OBJECT" Role="OBJECT" Multiplicity="1" />
+    <End Type="TIOTModel.ObjectCommand" Role="ObjectCommand" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OBJECT">
+        <PropertyRef Name="ObjectID" />
+      </Principal>
+      <Dependent Role="ObjectCommand">
+        <PropertyRef Name="ObjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ObjectGro__Objec__46E78A0C">
+    <End Type="TIOTModel.OBJECT" Role="OBJECT" Multiplicity="1" />
+    <End Type="TIOTModel.ObjectGroup" Role="ObjectGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OBJECT">
+        <PropertyRef Name="ObjectID" />
+      </Principal>
+      <Dependent Role="ObjectGroup">
+        <PropertyRef Name="ObjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ObjectLastStatus_OBJECTS">
+    <End Type="TIOTModel.OBJECT" Role="OBJECT" Multiplicity="0..1" />
+    <End Type="TIOTModel.ObjectLastStatu" Role="ObjectLastStatu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OBJECT">
+        <PropertyRef Name="ObjectID" />
+      </Principal>
+      <Dependent Role="ObjectLastStatu">
+        <PropertyRef Name="ObjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ObjectLastStatus_PMessage">
+    <End Type="TIOTModel.PMessage" Role="PMessage" Multiplicity="0..1" />
+    <End Type="TIOTModel.ObjectLastStatu" Role="ObjectLastStatu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PMessage">
+        <PropertyRef Name="PMID" />
+      </Principal>
+      <Dependent Role="ObjectLastStatu">
+        <PropertyRef Name="PMID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ObjectSen__Objec__6383C8BA">
+    <End Type="TIOTModel.OBJECT" Role="OBJECT" Multiplicity="0..1" />
+    <End Type="TIOTModel.ObjectSensor" Role="ObjectSensor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OBJECT">
+        <PropertyRef Name="ObjectID" />
+      </Principal>
+      <Dependent Role="ObjectSensor">
+        <PropertyRef Name="ObjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ObjectSen__Objec__6754599E">
+    <End Type="TIOTModel.OBJECT" Role="OBJECT" Multiplicity="0..1" />
+    <End Type="TIOTModel.ObjectSensor" Role="ObjectSensor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OBJECT">
+        <PropertyRef Name="ObjectID" />
+      </Principal>
+      <Dependent Role="ObjectSensor">
+        <PropertyRef Name="ObjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ObjectSen__Senso__6477ECF3">
+    <End Type="TIOTModel.Sensor" Role="Sensor" Multiplicity="1" />
+    <End Type="TIOTModel.ObjectSensor" Role="ObjectSensor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sensor">
+        <PropertyRef Name="SensorID" />
+      </Principal>
+      <Dependent Role="ObjectSensor">
+        <PropertyRef Name="SensorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ObjectSen__Senso__68487DD7">
+    <End Type="TIOTModel.Sensor" Role="Sensor" Multiplicity="1" />
+    <End Type="TIOTModel.ObjectSensor" Role="ObjectSensor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sensor">
+        <PropertyRef Name="SensorID" />
+      </Principal>
+      <Dependent Role="ObjectSensor">
+        <PropertyRef Name="SensorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PMDATA_ObjectSensors">
+    <End Type="TIOTModel.ObjectSensor" Role="ObjectSensor" Multiplicity="0..1" />
+    <End Type="TIOTModel.PMDATA" Role="PMDATA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ObjectSensor">
+        <PropertyRef Name="ObjectSensorId" />
+      </Principal>
+      <Dependent Role="PMDATA">
+        <PropertyRef Name="ObjectSensorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SensorInterpretation_ObjectSensors">
+    <End Type="TIOTModel.ObjectSensor" Role="ObjectSensor" Multiplicity="1" />
+    <End Type="TIOTModel.SensorInterpretation" Role="SensorInterpretation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ObjectSensor">
+        <PropertyRef Name="ObjectSensorId" />
+      </Principal>
+      <Dependent Role="SensorInterpretation">
+        <PropertyRef Name="ObjectSensorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PMDATA_PMessage">
+    <End Type="TIOTModel.PMessage" Role="PMessage" Multiplicity="0..1" />
+    <End Type="TIOTModel.PMDATA" Role="PMDATA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PMessage">
+        <PropertyRef Name="PMID" />
+      </Principal>
+      <Dependent Role="PMDATA">
+        <PropertyRef Name="PMID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="uspGET_ObjectIDNameByGroup_Result">
+    <Property Type="Int32" Name="ObjectID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+    <Property Type="DateTime" Name="LastRecordReceived" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="RelayStatus" Nullable="true" />
+    <Property Type="Boolean" Name="TavlStatus" Nullable="true" />
+    <Property Type="String" Name="TavlIP" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="AttendanceStatus" Nullable="true" />
+    <Property Type="Int32" Name="AttendanceClient" Nullable="true" />
+    <Property Type="String" Name="AttendanceIP" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="uspGet_EquipmentConsumptionByDT_Result">
+    <Property Type="String" Name="Name" Nullable="true" />
+    <Property Type="Decimal" Name="Current" Nullable="true" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="Voltage" Nullable="true" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="Power" Nullable="true" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="Unit" Nullable="true" Precision="10" Scale="2" />
+    <Property Type="String" Name="TotalTime" Nullable="true" />
+    <Property Type="DateTime" Name="StartTime" Nullable="true" Precision="23" />
+    <Property Type="DateTime" Name="EndTime" Nullable="true" Precision="23" />
+  </ComplexType>
+  <EntityType Name="CommandLogByUserID">
+    <Key>
+      <PropertyRef Name="LogID" />
+    </Key>
+    <Property Name="LogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int32" />
+    <Property Name="ObjectID" Type="Int32" />
+    <Property Name="SensorID" Type="Int32" />
+    <Property Name="CommandID" Type="Int32" />
+    <Property Name="DateTimeStamp" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ObjectAlertStatu">
+    <Key>
+      <PropertyRef Name="AlertID" />
+    </Key>
+    <Property Name="AlertID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ObjectID" Type="Int32" />
+    <Property Name="DateTimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="DateTime" Type="DateTime" Precision="3" />
+  </EntityType>
+</Schema>

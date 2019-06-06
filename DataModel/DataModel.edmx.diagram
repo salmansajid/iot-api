@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f086ff07d4fc412e85b4fbec49f2a25f" Name="Diagram1" ZoomLevel="75">
+        <EntityTypeShape EntityType="TIOTModel.Category" Width="1.5" PointX="9" PointY="30.75" />
+        <EntityTypeShape EntityType="TIOTModel.Client" Width="1.5" PointX="0.75" PointY="19.125" />
+        <EntityTypeShape EntityType="TIOTModel.Command" Width="1.5" PointX="9" PointY="14.125" />
+        <EntityTypeShape EntityType="TIOTModel.CommandExecuteHistory" Width="1.5" PointX="11.25" PointY="18.125" />
+        <EntityTypeShape EntityType="TIOTModel.CommandHistory" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="TIOTModel.CommandsQueue" Width="1.5" PointX="8.25" PointY="27.25" />
+        <EntityTypeShape EntityType="TIOTModel.CustomNotification" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="TIOTModel.EquipmentScheduling" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="TIOTModel.EventConfigLog" Width="1.5" PointX="2.75" PointY="4.75" />
+        <EntityTypeShape EntityType="TIOTModel.EventConfigTemp" Width="1.5" PointX="4.75" PointY="4.75" />
+        <EntityTypeShape EntityType="TIOTModel.EventConfiguration" Width="1.5" PointX="8.25" PointY="22.625" />
+        <EntityTypeShape EntityType="TIOTModel.EventLog" Width="1.5" PointX="5.25" PointY="26.875" />
+        <EntityTypeShape EntityType="TIOTModel.EventSMSLog" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="TIOTModel.Feature" Width="1.5" PointX="3" PointY="12.625" />
+        <EntityTypeShape EntityType="TIOTModel.FederalHoliday" Width="1.5" PointX="6.75" PointY="4.75" />
+        <EntityTypeShape EntityType="TIOTModel.FirmwareScheduling" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="TIOTModel.Group" Width="1.5" PointX="3" PointY="8.625" />
+        <EntityTypeShape EntityType="TIOTModel.Login" Width="1.5" PointX="3" PointY="16.375" />
+        <EntityTypeShape EntityType="TIOTModel.LoginFeature" Width="1.5" PointX="5.25" PointY="13.75" />
+        <EntityTypeShape EntityType="TIOTModel.LoginGroup" Width="1.5" PointX="5.25" PointY="16.875" />
+        <EntityTypeShape EntityType="TIOTModel.ObjectCommand" Width="1.5" PointX="5.25" PointY="20.375" />
+        <EntityTypeShape EntityType="TIOTModel.ObjectGroup" Width="1.5" PointX="5.25" PointY="23.5" />
+        <EntityTypeShape EntityType="TIOTModel.ObjectLastStatu" Width="1.5" PointX="8.25" PointY="17.875" />
+        <EntityTypeShape EntityType="TIOTModel.OBJECT" Width="1.5" PointX="3" PointY="20.625" />
+        <EntityTypeShape EntityType="TIOTModel.ObjectSensor" Width="1.5" PointX="11.25" PointY="21.875" />
+        <EntityTypeShape EntityType="TIOTModel.PMDATA" Width="1.5" PointX="13.5" PointY="23.25" />
+        <EntityTypeShape EntityType="TIOTModel.PMessage" Width="1.5" PointX="6" PointY="9" />
+        <EntityTypeShape EntityType="TIOTModel.RelayNotification" Width="1.5" PointX="8.75" PointY="4.75" />
+        <EntityTypeShape EntityType="TIOTModel.Role" Width="1.5" PointX="0.75" PointY="16" />
+        <EntityTypeShape EntityType="TIOTModel.Scheduling" Width="1.5" PointX="8.75" PointY="8.75" />
+        <EntityTypeShape EntityType="TIOTModel.SensorInterpretation" Width="1.5" PointX="13.5" PointY="26.75" />
+        <EntityTypeShape EntityType="TIOTModel.Sensor" Width="1.5" PointX="9" PointY="34" />
+        <EntityTypeShape EntityType="TIOTModel.SMS_SentLog" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="TIOTModel.smsDinStatetemp" Width="1.5" PointX="10.75" PointY="4.75" />
+        <EntityTypeShape EntityType="TIOTModel.SMSLogTempTable" Width="1.5" PointX="10.75" PointY="7.75" />
+        <EntityTypeShape EntityType="TIOTModel.Status" Width="1.5" PointX="8.75" PointY="11.75" />
+        <EntityTypeShape EntityType="TIOTModel.SwitchesReport" Width="1.5" PointX="11.75" PointY="11.75" />
+        <EntityTypeShape EntityType="TIOTModel.sysdiagram" Width="1.5" PointX="12.75" PointY="0.75" />
+        <EntityTypeShape EntityType="TIOTModel.ConsumptionReport" Width="1.5" PointX="12.75" PointY="3.75" />
+        <EntityTypeShape EntityType="TIOTModel.ControllingReport" Width="1.5" PointX="12.75" PointY="7.75" />
+        <EntityTypeShape EntityType="TIOTModel.DigitalInputLog" Width="1.5" PointX="13.75" PointY="11.75" />
+        <EntityTypeShape EntityType="TIOTModel.DigitalInputTemp" Width="1.5" PointX="14.75" PointY="0.75" />
+        <EntityTypeShape EntityType="TIOTModel.ReportConsumption" Width="1.5" PointX="14.75" PointY="3.75" />
+        <EntityTypeShape EntityType="TIOTModel.ReportControlling" Width="1.5" PointX="14.75" PointY="7.75" />
+        <EntityTypeShape EntityType="TIOTModel.SensorCommand" Width="1.5" PointX="15.75" PointY="10.75" />
+        <EntityTypeShape EntityType="TIOTModel.SensorControlling" Width="1.5" PointX="15.75" PointY="13.75" />
+        <EntityTypeShape EntityType="TIOTModel.SensorObjectGroup" Width="1.5" PointX="16.75" PointY="0.75" />
+        <EntityTypeShape EntityType="TIOTModel.TempSwitchReport" Width="1.5" PointX="16.75" PointY="3.75" />
+        <AssociationConnector Association="TIOTModel.FK__ObjectSen__Categ__628FA481" />
+        <AssociationConnector Association="TIOTModel.FK__ObjectSen__Categ__66603565" />
+        <AssociationConnector Association="TIOTModel.FK__Login__ClientID__3E52440B" />
+        <AssociationConnector Association="TIOTModel.FK__OBJECTS__ClientI__49C3F6B7" />
+        <AssociationConnector Association="TIOTModel.FK_CommandExecuteHistory_Command" />
+        <AssociationConnector Association="TIOTModel.FK_CommandsQueue_Command" />
+        <AssociationConnector Association="TIOTModel.FK_ObjectCommands_Command" />
+        <AssociationConnector Association="TIOTModel.FK_CommandExecuteHistory_OBJECTS" />
+        <AssociationConnector Association="TIOTModel.FK_ObjectCommands_OBJECTS" />
+        <AssociationConnector Association="TIOTModel.FK__EventConf__Objec__3CE9E9DD" />
+        <AssociationConnector Association="TIOTModel.FK__EventConf__Objec__3ED2324F" />
+        <AssociationConnector Association="TIOTModel.FK__EventLog__Object__2FCF1A8A" />
+        <AssociationConnector Association="TIOTModel.FK__EventLog__Object__30C33EC3" />
+        <AssociationConnector Association="TIOTModel.FK__LoginFeat__Featu__48E5AC6E" />
+        <AssociationConnector Association="TIOTModel.FK__LoginGrou__Group__412EB0B6" />
+        <AssociationConnector Association="TIOTModel.FK__ObjectGro__Group__440B1D61" />
+        <AssociationConnector Association="TIOTModel.FK__Login__RoleID__3F466844" />
+        <AssociationConnector Association="TIOTModel.FK__LoginFeat__Login__47F18835" />
+        <AssociationConnector Association="TIOTModel.FK__LoginGrou__Login__4316F928" />
+        <AssociationConnector Association="TIOTModel.FK_CommandsQueue_OBJECTS" />
+        <AssociationConnector Association="TIOTModel.FK__ObjectGro__Objec__46E78A0C" />
+        <AssociationConnector Association="TIOTModel.FK_ObjectLastStatus_OBJECTS" />
+        <AssociationConnector Association="TIOTModel.FK_ObjectLastStatus_PMessage" />
+        <AssociationConnector Association="TIOTModel.FK__ObjectSen__Objec__6383C8BA" />
+        <AssociationConnector Association="TIOTModel.FK__ObjectSen__Objec__6754599E" />
+        <AssociationConnector Association="TIOTModel.FK__ObjectSen__Senso__6477ECF3" />
+        <AssociationConnector Association="TIOTModel.FK__ObjectSen__Senso__68487DD7" />
+        <AssociationConnector Association="TIOTModel.FK_PMDATA_ObjectSensors" />
+        <AssociationConnector Association="TIOTModel.FK_SensorInterpretation_ObjectSensors" />
+        <AssociationConnector Association="TIOTModel.FK_PMDATA_PMessage" />
+        <EntityTypeShape EntityType="TIOTModel.CommandLogByUserID" Width="1.5" PointX="13.375" PointY="17.75" />
+        <EntityTypeShape EntityType="TIOTModel.ObjectAlertStatu" Width="1.5" PointX="15.375" PointY="17.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

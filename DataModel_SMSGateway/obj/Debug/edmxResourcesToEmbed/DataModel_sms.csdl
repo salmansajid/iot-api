@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SMSGetWayModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="SmsToSend">
+    <Key>
+      <PropertyRef Name="SmsToSendId" />
+    </Key>
+    <Property Name="SmsToSendId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DestinationNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CellNetworkId" Type="Int32" />
+    <Property Name="IsEencrypted" Type="Boolean" />
+  </EntityType>
+  <EntityContainer Name="SMSGetWayEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="SmsToSends" EntityType="Self.SmsToSend" />
+  </EntityContainer>
+</Schema>

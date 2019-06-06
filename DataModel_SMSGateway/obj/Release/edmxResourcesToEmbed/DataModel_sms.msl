@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SMSGetWayModelStoreContainer" CdmEntityContainer="SMSGetWayEntities">
+    <EntitySetMapping Name="SmsToSends">
+      <EntityTypeMapping TypeName="SMSGetWayModel.SmsToSend">
+        <MappingFragment StoreEntitySet="SmsToSend">
+          <ScalarProperty Name="SmsToSendId" ColumnName="SmsToSendId" />
+          <ScalarProperty Name="DestinationNumber" ColumnName="DestinationNumber" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CellNetworkId" ColumnName="CellNetworkId" />
+          <ScalarProperty Name="IsEencrypted" ColumnName="IsEencrypted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

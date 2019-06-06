@@ -1,0 +1,10 @@
+D:\TIOT\TIOT_API\DataModel_SMSGateway\bin\Release\DataModel_SMSGateway.dll.config
+D:\TIOT\TIOT_API\DataModel_SMSGateway\bin\Release\DataModel_SMSGateway.dll
+D:\TIOT\TIOT_API\DataModel_SMSGateway\bin\Release\DataModel_SMSGateway.pdb
+D:\TIOT\TIOT_API\DataModel_SMSGateway\bin\Release\EntityFramework.dll
+D:\TIOT\TIOT_API\DataModel_SMSGateway\bin\Release\EntityFramework.SqlServer.dll
+D:\TIOT\TIOT_API\DataModel_SMSGateway\bin\Release\EntityFramework.xml
+D:\TIOT\TIOT_API\DataModel_SMSGateway\bin\Release\EntityFramework.SqlServer.xml
+D:\TIOT\TIOT_API\DataModel_SMSGateway\obj\Release\DataModel_SMSGateway.csprojResolveAssemblyReference.cache
+D:\TIOT\TIOT_API\DataModel_SMSGateway\obj\Release\DataModel_SMSGateway.dll
+D:\TIOT\TIOT_API\DataModel_SMSGateway\obj\Release\DataModel_SMSGateway.pdb

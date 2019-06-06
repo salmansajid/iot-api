@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A0941B85-0D01-4503-9D50-7ED3F2D69FC5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BusinessServices</RootNamespace>
+    <AssemblyName>BusinessServices</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>bin\Release\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>bin\Release\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TavlWeb.WebAPI.Authentication">
+      <HintPath>bin\Release\TavlWeb.WebAPI.Authentication.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CategoryServices\CategoryServices.cs" />
+    <Compile Include="CategoryServices\ICategoryServices.cs" />
+    <Compile Include="ClientServices\ClientServices.cs" />
+    <Compile Include="ClientServices\IClientServices.cs" />
+    <Compile Include="CommandHistoryServices\CommandHistoryServices.cs" />
+    <Compile Include="CommandHistoryServices\ICommandHistoryServices.cs" />
+    <Compile Include="CommandQueueServices\CommandQueueServices.cs" />
+    <Compile Include="CommandQueueServices\ICommandQueueServices.cs" />
+    <Compile Include="DashboardServices\DashboardServices.cs" />
+    <Compile Include="DashboardServices\IDashboardServices.cs" />
+    <Compile Include="DinStateServices\DinStateService.cs" />
+    <Compile Include="DinStateServices\IDinStateService.cs" />
+    <Compile Include="EquipmentSchedulingServices\EquipmentSchedulingServices.cs" />
+    <Compile Include="EquipmentSchedulingServices\IEquipmentSchedulingServices.cs" />
+    <Compile Include="EventConfigurationServices\EventConfigurationServices.cs" />
+    <Compile Include="EventConfigurationServices\IEventConfigurationServices.cs" />
+    <Compile Include="EventLogServices\EventLogServices.cs" />
+    <Compile Include="EventLogServices\IEventLogServices.cs" />
+    <Compile Include="FeatureServices\FeatureServices.cs" />
+    <Compile Include="FeatureServices\IFeatureServices.cs" />
+    <Compile Include="FirmwareSchedulingServices\FirmwareSchedulingServices.cs" />
+    <Compile Include="FirmwareSchedulingServices\IFirmwareSchedulingServices.cs" />
+    <Compile Include="GroupServices\GroupServices.cs" />
+    <Compile Include="GroupServices\IGroupServices.cs" />
+    <Compile Include="HolidaySchedulingServices\HolidaySchedulingServices.cs" />
+    <Compile Include="HolidaySchedulingServices\IHolidaySchedulingServices.cs" />
+    <Compile Include="LoginFeatureServices\ILoginFeatureServices.cs" />
+    <Compile Include="LoginFeatureServices\LoginFeatureServices.cs" />
+    <Compile Include="LoginGroupServices\ILoginGroupServices.cs" />
+    <Compile Include="LoginGroupServices\LoginGroupServices.cs" />
+    <Compile Include="LoginServices\ILoginServices.cs" />
+    <Compile Include="LoginServices\LoginServices.cs" />
+    <Compile Include="ObjCommandServices\IObjCommandServices.cs" />
+    <Compile Include="ObjCommandServices\ObjCommandServices.cs" />
+    <Compile Include="ObjectGroupServices\IObjectGroupServices.cs" />
+    <Compile Include="ObjectGroupServices\ObjectGroupServices.cs" />
+    <Compile Include="ObjectSensorsServices\IObjectSensorServices.cs" />
+    <Compile Include="ObjectSensorsServices\ObjectSensorServices.cs" />
+    <Compile Include="ObjectServices\IObjectServices.cs" />
+    <Compile Include="ObjectServices\ObjectServices.cs" />
+    <Compile Include="PMDATAServices\IPMDATAService.cs" />
+    <Compile Include="PMDATAServices\PMDATAService.cs" />
+    <Compile Include="PMessageServices\IPMessageService.cs" />
+    <Compile Include="PMessageServices\PMessageService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RelayNotificationServices\IRelayNotificationServices.cs" />
+    <Compile Include="RelayNotificationServices\RelayNotificationServices.cs" />
+    <Compile Include="ReportService\IReportService.cs" />
+    <Compile Include="ReportService\ReportService.cs" />
+    <Compile Include="RoleServices\IRoleServices.cs" />
+    <Compile Include="RoleServices\RoleServices.cs" />
+    <Compile Include="SchedulingServices\ISchedulingServices.cs" />
+    <Compile Include="SchedulingServices\SchedulingServices.cs" />
+    <Compile Include="SensorCommandServices\ISensorCommandServices.cs" />
+    <Compile Include="SensorCommandServices\SensorCommandServices.cs" />
+    <Compile Include="SensorObjectGroupServices\ISensorObjectGroup.cs" />
+    <Compile Include="SensorObjectGroupServices\SensorObjectGroupServices.cs" />
+    <Compile Include="SensorServices\ISensorServices.cs" />
+    <Compile Include="SensorServices\SensorServices.cs" />
+    <Compile Include="StatusServices\IStatusServices.cs" />
+    <Compile Include="StatusServices\StatusServices.cs" />
+    <Compile Include="StoreProcedures\IStoreProcedureServices.cs" />
+    <Compile Include="StoreProcedures\StoreProcedureServices.cs" />
+    <Compile Include="SwitchesReportServices\ISwitchesReportServices.cs" />
+    <Compile Include="SwitchesReportServices\SwitchesReportServices.cs" />
+    <Compile Include="TAVL\TAVLService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessEntities\BusinessEntities.csproj">
+      <Project>{bf512ffe-a4f0-47b3-ad42-cb17ac44c7b5}</Project>
+      <Name>BusinessEntities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataModel\DataModel.csproj">
+      <Project>{a91afcd8-7184-4021-ab3b-e0d97d059ade}</Project>
+      <Name>DataModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

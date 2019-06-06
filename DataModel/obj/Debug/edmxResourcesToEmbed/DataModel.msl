@@ -1,0 +1,957 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TIOTModelStoreContainer" CdmEntityContainer="TIOTEntities1">
+    <FunctionImportMapping FunctionImportName="sp_GetConsumptionTillPackTime" FunctionName="TIOTModel.Store.sp_GetConsumptionTillPackTime">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TIOTModel.sp_GetConsumptionTillPackTime_Result">
+          <ScalarProperty Name="SourceName" ColumnName="SourceName" />
+          <ScalarProperty Name="SEN" ColumnName="SEN" />
+          <ScalarProperty Name="value" ColumnName="value" />
+          <ScalarProperty Name="ReceivedDateTimeStamp" ColumnName="ReceivedDateTimeStamp" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_getdemo" FunctionName="TIOTModel.Store.sp_getdemo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TIOTModel.sp_getdemo_Result">
+          <ScalarProperty Name="SourceName" ColumnName="SourceName" />
+          <ScalarProperty Name="SEN" ColumnName="SEN" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="value" ColumnName="value" />
+          <ScalarProperty Name="SourceName1" ColumnName="SourceName1" />
+          <ScalarProperty Name="ReceivedDateTimeStamp" ColumnName="ReceivedDateTimeStamp" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetFeulLastStatus_Read" FunctionName="TIOTModel.Store.sp_GetFeulLastStatus_Read">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TIOTModel.sp_GetFeulLastStatus_Read_Result">
+          <ScalarProperty Name="SensorID" ColumnName="SensorID" />
+          <ScalarProperty Name="EventLogID" ColumnName="EventLogID" />
+          <ScalarProperty Name="PMID" ColumnName="PMID" />
+          <ScalarProperty Name="PMDATAID" ColumnName="PMDATAID" />
+          <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+          <ScalarProperty Name="DeviceDateTime" ColumnName="DeviceDateTime" />
+          <ScalarProperty Name="ObjectSensorId" ColumnName="ObjectSensorId" />
+          <ScalarProperty Name="VALUE" ColumnName="VALUE" />
+          <ScalarProperty Name="Valid" ColumnName="Valid" />
+          <ScalarProperty Name="DateTimeStamp" ColumnName="DateTimeStamp" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetNONAlertState" FunctionName="TIOTModel.Store.sp_GetNONAlertState">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TIOTModel.sp_GetNONAlertState_Result">
+          <ScalarProperty Name="CommandHistoryID" ColumnName="CommandHistoryID" />
+          <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="DateTimeStamp" ColumnName="DateTimeStamp" />
+          <ScalarProperty Name="EmailNo_1" ColumnName="EmailNo_1" />
+          <ScalarProperty Name="CommandsQueueID" ColumnName="CommandsQueueID" />
+          <ScalarProperty Name="CommandID" ColumnName="CommandID" />
+          <ScalarProperty Name="Response" ColumnName="Response" />
+          <ScalarProperty Name="AlertState" ColumnName="AlertState" />
+          <ScalarProperty Name="DeviceName" ColumnName="DeviceName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetNonAssignedObjSenForSchd" FunctionName="TIOTModel.Store.sp_GetNonAssignedObjSenForSchd">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TIOTModel.sp_GetNonAssignedObjSenForSchd_Result">
+          <ScalarProperty Name="ObjectSensorID" ColumnName="ObjectSensorID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetObjectSensors" FunctionName="TIOTModel.Store.sp_GetObjectSensors">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TIOTModel.sp_GetObjectSensors_Result">
+          <ScalarProperty Name="objectsensorid" ColumnName="objectsensorid" />
+          <ScalarProperty Name="sensorid" ColumnName="sensorid" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetSchedulingByObjAndDay" FunctionName="TIOTModel.Store.sp_GetSchedulingByObjAndDay">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TIOTModel.sp_GetSchedulingByObjAndDay_Result">
+          <ScalarProperty Name="SchedulingId" ColumnName="SchedulingId" />
+          <ScalarProperty Name="DaysName" ColumnName="DaysName" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="Days" ColumnName="Days" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ObjectSensorId" ColumnName="ObjectSensorId" />
+          <ScalarProperty Name="EnableOrDisable" ColumnName="EnableOrDisable" />
+          <ScalarProperty Name="sensorID" ColumnName="sensorID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetSchedulingByObjAndDayAndObS" FunctionName="TIOTModel.Store.sp_GetSchedulingByObjAndDayAndObS">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TIOTModel.sp_GetSchedulingByObjAndDayAndObS_Result">
+          <ScalarProperty Name="SchedulingId" ColumnName="SchedulingId" />
+          <ScalarProperty Name="DaysName" ColumnName="DaysName" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="Days" ColumnName="Days" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ObjectSensorId" ColumnName="ObjectSensorId" />
+          <ScalarProperty Name="EnableOrDisable" ColumnName="EnableOrDisable" />
+          <ScalarProperty Name="sensorID" ColumnName="sensorID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetSchedulingByObjAndObjSenIdForWeek" FunctionName="TIOTModel.Store.sp_GetSchedulingByObjAndObjSenIdForWeek">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TIOTModel.sp_GetSchedulingByObjAndObjSenIdForWeek_Result">
+          <ScalarProperty Name="SchedulingId" ColumnName="SchedulingId" />
+          <ScalarProperty Name="DaysName" ColumnName="DaysName" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="Days" ColumnName="Days" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ObjectSensorId" ColumnName="ObjectSensorId" />
+          <ScalarProperty Name="EnableOrDisable" ColumnName="EnableOrDisable" />
+          <ScalarProperty Name="sensorID" ColumnName="sensorID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_SensorData_Read" FunctionName="TIOTModel.Store.sp_SensorData_Read">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TIOTModel.sp_SensorData_Read_Result">
+          <ScalarProperty Name="PMID" ColumnName="PMID" />
+          <ScalarProperty Name="DeviceDateTime" ColumnName="DeviceDateTime" />
+          <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+          <ScalarProperty Name="ReceivedDateTimeStamp" ColumnName="ReceivedDateTimeStamp" />
+          <ScalarProperty Name="SensorId" ColumnName="SensorId" />
+          <ScalarProperty Name="VALUE" ColumnName="VALUE" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_TemperatureSensorByObject" FunctionName="TIOTModel.Store.sp_TemperatureSensorByObject">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TIOTModel.sp_TemperatureSensorByObject_Result">
+          <ScalarProperty Name="SourceName" ColumnName="SourceName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="avg" ColumnName="avg" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_ObjectLastStatus_Read_UPDATED" FunctionName="TIOTModel.Store.sp_ObjectLastStatus_Read_UPDATED">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TIOTModel.sp_ObjectLastStatus_Read_UPDATED_Result">
+          <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+          <ScalarProperty Name="pmid" ColumnName="pmid" />
+          <ScalarProperty Name="ReceivedDateTimeStamp" ColumnName="ReceivedDateTimeStamp" />
+          <ScalarProperty Name="DeviceDateTime" ColumnName="DeviceDateTime" />
+          <ScalarProperty Name="VALUE" ColumnName="VALUE" />
+          <ScalarProperty Name="SensorName" ColumnName="SensorName" />
+          <ScalarProperty Name="SourceName" ColumnName="SourceName" />
+          <ScalarProperty Name="Unit" ColumnName="Unit" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="RelayStatus" ColumnName="RelayStatus" />
+          <ScalarProperty Name="SensorID" ColumnName="SensorID" />
+          <ScalarProperty Name="TavlClient" ColumnName="TavlClient" />
+          <ScalarProperty Name="TavlGroup" ColumnName="TavlGroup" />
+          <ScalarProperty Name="TavlStatus" ColumnName="TavlStatus" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_smslog_obj_sensor" FunctionName="TIOTModel.Store.sp_smslog_obj_sensor">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TIOTModel.sp_smslog_obj_sensor_Result">
+          <ScalarProperty Name="Device" ColumnName="Device" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Sensor" ColumnName="Sensor" />
+          <ScalarProperty Name="Variatoin_Time" ColumnName="Variatoin_Time" />
+          <ScalarProperty Name="SensorID" ColumnName="SensorID" />
+          <ScalarProperty Name="SensorName" ColumnName="SensorName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetCurrentdateControlling" FunctionName="TIOTModel.Store.sp_GetCurrentdateControlling">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TIOTModel.sp_GetCurrentdateControlling_Result">
+          <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Fault" ColumnName="Fault" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="TotalTime" ColumnName="TotalTime" />
+          <ScalarProperty Name="SensorID" ColumnName="SensorID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetCurrentdateConsumption" FunctionName="TIOTModel.Store.sp_GetCurrentdateConsumption">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TIOTModel.sp_GetCurrentdateConsumption_Result">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="sensorId" ColumnName="sensorId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_EventLogbyObjectDT" FunctionName="TIOTModel.Store.sp_EventLogbyObjectDT">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TIOTModel.sp_EventLogbyObjectDT_Result">
+          <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="SensorID" ColumnName="SensorID" />
+          <ScalarProperty Name="DateTimeStamp" ColumnName="DateTimeStamp" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_EventConfig_LocationByObjID" FunctionName="TIOTModel.Store.sp_EventConfig_LocationByObjID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TIOTModel.sp_EventConfig_LocationByObjID_Result">
+          <ScalarProperty Name="objectsensorId" ColumnName="objectsensorId" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="sensorId" ColumnName="sensorId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_GetObjectLastRelayStatus" FunctionName="TIOTModel.Store.usp_GetObjectLastRelayStatus">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TIOTModel.usp_GetObjectLastRelayStatus_Result">
+          <ScalarProperty Name="PMID" ColumnName="PMID" />
+          <ScalarProperty Name="ObjectSensorId" ColumnName="ObjectSensorId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Current" ColumnName="Current" />
+          <ScalarProperty Name="Voltage" ColumnName="Voltage" />
+          <ScalarProperty Name="Fault" ColumnName="Fault" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="DateTimeStamp" ColumnName="DateTimeStamp" />
+          <ScalarProperty Name="SensorId" ColumnName="SensorId" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="uspREPORT_DinState1" FunctionName="TIOTModel.Store.uspREPORT_DinState1">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TIOTModel.uspREPORT_DinState1_Result">
+          <ScalarProperty Name="ObjectsensorID" ColumnName="ObjectsensorID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="TotalTime" ColumnName="TotalTime" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="TIOTModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="ImgPath" ColumnName="ImgPath" />
+          <ScalarProperty Name="Max" ColumnName="Max" />
+          <ScalarProperty Name="Min" ColumnName="Min" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="EnableORDisable" ColumnName="EnableORDisable" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clients">
+      <EntityTypeMapping TypeName="TIOTModel.Client">
+        <MappingFragment StoreEntitySet="Client">
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="ExpireDate" ColumnName="ExpireDate" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Enabled" ColumnName="Enabled" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="OperatorID" ColumnName="OperatorID" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Commands">
+      <EntityTypeMapping TypeName="TIOTModel.Command">
+        <MappingFragment StoreEntitySet="Command">
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="DeviceType" ColumnName="DeviceType" />
+          <ScalarProperty Name="Parameter" ColumnName="Parameter" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CommandID" ColumnName="CommandID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CommandExecuteHistories">
+      <EntityTypeMapping TypeName="TIOTModel.CommandExecuteHistory">
+        <MappingFragment StoreEntitySet="CommandExecuteHistory">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ExecutedBy" ColumnName="ExecutedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Response" ColumnName="Response" />
+          <ScalarProperty Name="CommandID" ColumnName="CommandID" />
+          <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
+          <ScalarProperty Name="CommandExecuteHistoryID" ColumnName="CommandExecuteHistoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CommandHistories">
+      <EntityTypeMapping TypeName="TIOTModel.CommandHistory">
+        <MappingFragment StoreEntitySet="CommandHistory">
+          <ScalarProperty Name="AlertState" ColumnName="AlertState" />
+          <ScalarProperty Name="StateSMS" ColumnName="StateSMS" />
+          <ScalarProperty Name="Response" ColumnName="Response" />
+          <ScalarProperty Name="CommandID" ColumnName="CommandID" />
+          <ScalarProperty Name="CommandsQueueID" ColumnName="CommandsQueueID" />
+          <ScalarProperty Name="DateTimeStamp" ColumnName="DateTimeStamp" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Source" ColumnName="Source" />
+          <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
+          <ScalarProperty Name="CommandHistoryID" ColumnName="CommandHistoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CommandsQueues">
+      <EntityTypeMapping TypeName="TIOTModel.CommandsQueue">
+        <MappingFragment StoreEntitySet="CommandsQueue">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UnderProcess" ColumnName="UnderProcess" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CommandID" ColumnName="CommandID" />
+          <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+          <ScalarProperty Name="CommandsQueueID" ColumnName="CommandsQueueID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomNotifications">
+      <EntityTypeMapping TypeName="TIOTModel.CustomNotification">
+        <MappingFragment StoreEntitySet="CustomNotification">
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="NotificationID" ColumnName="NotificationID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EquipmentSchedulings">
+      <EntityTypeMapping TypeName="TIOTModel.EquipmentScheduling">
+        <MappingFragment StoreEntitySet="EquipmentScheduling">
+          <ScalarProperty Name="DaysName" ColumnName="DaysName" />
+          <ScalarProperty Name="EnableOrDisable" ColumnName="EnableOrDisable" />
+          <ScalarProperty Name="ObjectSensorId" ColumnName="ObjectSensorId" />
+          <ScalarProperty Name="Days" ColumnName="Days" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
+          <ScalarProperty Name="SchedulingID" ColumnName="SchedulingID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventConfigLogs">
+      <EntityTypeMapping TypeName="TIOTModel.EventConfigLog">
+        <MappingFragment StoreEntitySet="EventConfigLog">
+          <ScalarProperty Name="PMID" ColumnName="PMID" />
+          <ScalarProperty Name="ReceivedDateTime" ColumnName="ReceivedDateTime" />
+          <ScalarProperty Name="DateTimeStamp" ColumnName="DateTimeStamp" />
+          <ScalarProperty Name="Condition" ColumnName="Condition" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="SensorID" ColumnName="SensorID" />
+          <ScalarProperty Name="ObjectSensorID" ColumnName="ObjectSensorID" />
+          <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+          <ScalarProperty Name="ECLID" ColumnName="ECLID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventConfigTemps">
+      <EntityTypeMapping TypeName="TIOTModel.EventConfigTemp">
+        <MappingFragment StoreEntitySet="EventConfigTemp">
+          <ScalarProperty Name="PMID" ColumnName="PMID" />
+          <ScalarProperty Name="DateTimeStamp" ColumnName="DateTimeStamp" />
+          <ScalarProperty Name="Condition" ColumnName="Condition" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="ObjectSensorID" ColumnName="ObjectSensorID" />
+          <ScalarProperty Name="ECTID" ColumnName="ECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventConfigurations">
+      <EntityTypeMapping TypeName="TIOTModel.EventConfiguration">
+        <MappingFragment StoreEntitySet="EventConfiguration">
+          <ScalarProperty Name="Format" ColumnName="Format" />
+          <ScalarProperty Name="Units" ColumnName="Units" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="A1" ColumnName="A1" />
+          <ScalarProperty Name="A0" ColumnName="A0" />
+          <ScalarProperty Name="EnableOrDisable" ColumnName="EnableOrDisable" />
+          <ScalarProperty Name="Condition" ColumnName="Condition" />
+          <ScalarProperty Name="MAX" ColumnName="MAX" />
+          <ScalarProperty Name="Min" ColumnName="Min" />
+          <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+          <ScalarProperty Name="ObjectSensorID" ColumnName="ObjectSensorID" />
+          <ScalarProperty Name="EventConfigID" ColumnName="EventConfigID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventLogs">
+      <EntityTypeMapping TypeName="TIOTModel.EventLog">
+        <MappingFragment StoreEntitySet="EventLog">
+          <ScalarProperty Name="DateTimeStamp" ColumnName="DateTimeStamp" />
+          <ScalarProperty Name="Valid" ColumnName="Valid" />
+          <ScalarProperty Name="SensorID" ColumnName="SensorID" />
+          <ScalarProperty Name="VALUE" ColumnName="VALUE" />
+          <ScalarProperty Name="ObjectSensorId" ColumnName="ObjectSensorId" />
+          <ScalarProperty Name="DeviceDateTime" ColumnName="DeviceDateTime" />
+          <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+          <ScalarProperty Name="PMDATAID" ColumnName="PMDATAID" />
+          <ScalarProperty Name="PMID" ColumnName="PMID" />
+          <ScalarProperty Name="EventLogID" ColumnName="EventLogID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventSMSLogs">
+      <EntityTypeMapping TypeName="TIOTModel.EventSMSLog">
+        <MappingFragment StoreEntitySet="EventSMSLog">
+          <ScalarProperty Name="DateTimeStamp" ColumnName="DateTimeStamp" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="ObjectSensorID" ColumnName="ObjectSensorID" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Object" ColumnName="Object" />
+          <ScalarProperty Name="EventLogID" ColumnName="EventLogID" />
+          <ScalarProperty Name="ESLID" ColumnName="ESLID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Features">
+      <EntityTypeMapping TypeName="TIOTModel.Feature">
+        <MappingFragment StoreEntitySet="Feature">
+          <ScalarProperty Name="EnableOrDisable" ColumnName="EnableOrDisable" />
+          <ScalarProperty Name="Class" ColumnName="Class" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="Link" ColumnName="Link" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="FeatureID" ColumnName="FeatureID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FederalHolidays">
+      <EntityTypeMapping TypeName="TIOTModel.FederalHoliday">
+        <MappingFragment StoreEntitySet="FederalHolidays">
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+          <ScalarProperty Name="Enabled" ColumnName="Enabled" />
+          <ScalarProperty Name="FullDate" ColumnName="FullDate" />
+          <ScalarProperty Name="Holidays" ColumnName="Holidays" />
+          <ScalarProperty Name="HolidaysID" ColumnName="HolidaysID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FirmwareSchedulings">
+      <EntityTypeMapping TypeName="TIOTModel.FirmwareScheduling">
+        <MappingFragment StoreEntitySet="FirmwareScheduling">
+          <ScalarProperty Name="DateTimeStamp" ColumnName="DateTimeStamp" />
+          <ScalarProperty Name="ExecutionTime" ColumnName="ExecutionTime" />
+          <ScalarProperty Name="Command" ColumnName="Command" />
+          <ScalarProperty Name="SimNumber" ColumnName="SimNumber" />
+          <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
+          <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+          <ScalarProperty Name="FSID" ColumnName="FSID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Groups">
+      <EntityTypeMapping TypeName="TIOTModel.Group">
+        <MappingFragment StoreEntitySet="Group">
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Logins">
+      <EntityTypeMapping TypeName="TIOTModel.Login">
+        <MappingFragment StoreEntitySet="Login">
+          <ScalarProperty Name="Enabled" ColumnName="Enabled" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="User" ColumnName="User" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+          <ScalarProperty Name="LoginID" ColumnName="LoginID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoginFeatures">
+      <EntityTypeMapping TypeName="TIOTModel.LoginFeature">
+        <MappingFragment StoreEntitySet="LoginFeature">
+          <ScalarProperty Name="Enable" ColumnName="Enable" />
+          <ScalarProperty Name="FeatureID" ColumnName="FeatureID" />
+          <ScalarProperty Name="LoginID" ColumnName="LoginID" />
+          <ScalarProperty Name="LoginFeatureID" ColumnName="LoginFeatureID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoginGroups">
+      <EntityTypeMapping TypeName="TIOTModel.LoginGroup">
+        <MappingFragment StoreEntitySet="LoginGroup">
+          <ScalarProperty Name="LoginID" ColumnName="LoginID" />
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+          <ScalarProperty Name="LoginGroupID" ColumnName="LoginGroupID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ObjectCommands">
+      <EntityTypeMapping TypeName="TIOTModel.ObjectCommand">
+        <MappingFragment StoreEntitySet="ObjectCommands">
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CommandID" ColumnName="CommandID" />
+          <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+          <ScalarProperty Name="CommandsQueueID" ColumnName="CommandsQueueID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ObjectGroups">
+      <EntityTypeMapping TypeName="TIOTModel.ObjectGroup">
+        <MappingFragment StoreEntitySet="ObjectGroup">
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+          <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+          <ScalarProperty Name="ObjectGroupID" ColumnName="ObjectGroupID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ObjectLastStatus">
+      <EntityTypeMapping TypeName="TIOTModel.ObjectLastStatu">
+        <MappingFragment StoreEntitySet="ObjectLastStatus">
+          <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+          <ScalarProperty Name="LastRecordReceived" ColumnName="LastRecordReceived" />
+          <ScalarProperty Name="DevicePort" ColumnName="DevicePort" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="ConnectionDatetime" ColumnName="ConnectionDatetime" />
+          <ScalarProperty Name="DeviceStatus" ColumnName="DeviceStatus" />
+          <ScalarProperty Name="DeviceIP" ColumnName="DeviceIP" />
+          <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+          <ScalarProperty Name="PMID" ColumnName="PMID" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OBJECTS">
+      <EntityTypeMapping TypeName="TIOTModel.OBJECT">
+        <MappingFragment StoreEntitySet="OBJECTS">
+          <ScalarProperty Name="CreatedDatetime" ColumnName="CreatedDatetime" />
+          <ScalarProperty Name="SurveillanceStatus" ColumnName="SurveillanceStatus" />
+          <ScalarProperty Name="SurveillanceIP" ColumnName="SurveillanceIP" />
+          <ScalarProperty Name="AttendanceStatus" ColumnName="AttendanceStatus" />
+          <ScalarProperty Name="AttendanceIP" ColumnName="AttendanceIP" />
+          <ScalarProperty Name="AttendanceClient" ColumnName="AttendanceClient" />
+          <ScalarProperty Name="TavlStatus" ColumnName="TavlStatus" />
+          <ScalarProperty Name="TavlIP" ColumnName="TavlIP" />
+          <ScalarProperty Name="TavlGroup" ColumnName="TavlGroup" />
+          <ScalarProperty Name="TavlClient" ColumnName="TavlClient" />
+          <ScalarProperty Name="DeleteDateTime" ColumnName="DeleteDateTime" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="ObjectType" ColumnName="ObjectType" />
+          <ScalarProperty Name="RelayStatus" ColumnName="RelayStatus" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+          <ScalarProperty Name="EnableOrDisable" ColumnName="EnableOrDisable" />
+          <ScalarProperty Name="HardwareVersion" ColumnName="HardwareVersion" />
+          <ScalarProperty Name="FirmWareVersion" ColumnName="FirmWareVersion" />
+          <ScalarProperty Name="SimNumber" ColumnName="SimNumber" />
+          <ScalarProperty Name="IMEI" ColumnName="IMEI" />
+          <ScalarProperty Name="LONG" ColumnName="LONG" />
+          <ScalarProperty Name="LAT" ColumnName="LAT" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ObjectSensors">
+      <EntityTypeMapping TypeName="TIOTModel.ObjectSensor">
+        <MappingFragment StoreEntitySet="ObjectSensors">
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="Max" ColumnName="Max" />
+          <ScalarProperty Name="Min" ColumnName="Min" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="A1" ColumnName="A1" />
+          <ScalarProperty Name="A0" ColumnName="A0" />
+          <ScalarProperty Name="EmailAlert" ColumnName="EmailAlert" />
+          <ScalarProperty Name="SMSAlert" ColumnName="SMSAlert" />
+          <ScalarProperty Name="Enabled" ColumnName="Enabled" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+          <ScalarProperty Name="SensorID" ColumnName="SensorID" />
+          <ScalarProperty Name="ObjectSensorId" ColumnName="ObjectSensorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PMDATAs">
+      <EntityTypeMapping TypeName="TIOTModel.PMDATA">
+        <MappingFragment StoreEntitySet="PMDATA">
+          <ScalarProperty Name="SensorId" ColumnName="SensorId" />
+          <ScalarProperty Name="DateTimeStamp" ColumnName="DateTimeStamp" />
+          <ScalarProperty Name="VALUE" ColumnName="VALUE" />
+          <ScalarProperty Name="ObjectSensorId" ColumnName="ObjectSensorId" />
+          <ScalarProperty Name="PMID" ColumnName="PMID" />
+          <ScalarProperty Name="PMDATAID" ColumnName="PMDATAID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PMessages">
+      <EntityTypeMapping TypeName="TIOTModel.PMessage">
+        <MappingFragment StoreEntitySet="PMessage">
+          <ScalarProperty Name="Record_Priority" ColumnName="Record_Priority" />
+          <ScalarProperty Name="DateTimeStamp" ColumnName="DateTimeStamp" />
+          <ScalarProperty Name="DeviceDateTime" ColumnName="DeviceDateTime" />
+          <ScalarProperty Name="DeleteDateTime" ColumnName="DeleteDateTime" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="Valid" ColumnName="Valid" />
+          <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+          <ScalarProperty Name="ReceivedDateTimeStamp" ColumnName="ReceivedDateTimeStamp" />
+          <ScalarProperty Name="PMID" ColumnName="PMID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RelayNotifications">
+      <EntityTypeMapping TypeName="TIOTModel.RelayNotification">
+        <MappingFragment StoreEntitySet="RelayNotifications">
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+          <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="RelaynotificationID" ColumnName="RelaynotificationID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="TIOTModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Schedulings">
+      <EntityTypeMapping TypeName="TIOTModel.Scheduling">
+        <MappingFragment StoreEntitySet="Scheduling">
+          <ScalarProperty Name="Days" ColumnName="Days" />
+          <ScalarProperty Name="EnableOrDisable" ColumnName="EnableOrDisable" />
+          <ScalarProperty Name="CommandID" ColumnName="CommandID" />
+          <ScalarProperty Name="ScheduleTime" ColumnName="ScheduleTime" />
+          <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
+          <ScalarProperty Name="SchedulingID" ColumnName="SchedulingID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SensorInterpretations">
+      <EntityTypeMapping TypeName="TIOTModel.SensorInterpretation">
+        <MappingFragment StoreEntitySet="SensorInterpretation">
+          <ScalarProperty Name="Meaning" ColumnName="Meaning" />
+          <ScalarProperty Name="MaxValue" ColumnName="MaxValue" />
+          <ScalarProperty Name="MinValue" ColumnName="MinValue" />
+          <ScalarProperty Name="ObjectSensorId" ColumnName="ObjectSensorId" />
+          <ScalarProperty Name="SensorInterpretationId" ColumnName="SensorInterpretationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sensors">
+      <EntityTypeMapping TypeName="TIOTModel.Sensor">
+        <MappingFragment StoreEntitySet="Sensors">
+          <ScalarProperty Name="EnableOrDisable" ColumnName="EnableOrDisable" />
+          <ScalarProperty Name="Unit" ColumnName="Unit" />
+          <ScalarProperty Name="SourceName" ColumnName="SourceName" />
+          <ScalarProperty Name="SourceID" ColumnName="SourceID" />
+          <ScalarProperty Name="SensorID" ColumnName="SensorID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SMS_SentLog">
+      <EntityTypeMapping TypeName="TIOTModel.SMS_SentLog">
+        <MappingFragment StoreEntitySet="SMS_SentLog">
+          <ScalarProperty Name="PMID" ColumnName="PMID" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="Condition" ColumnName="Condition" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="SensorID" ColumnName="SensorID" />
+          <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+          <ScalarProperty Name="ObjectSensorID" ColumnName="ObjectSensorID" />
+          <ScalarProperty Name="LogID" ColumnName="LogID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="smsDinStatetemps">
+      <EntityTypeMapping TypeName="TIOTModel.smsDinStatetemp">
+        <MappingFragment StoreEntitySet="smsDinStatetemp">
+          <ScalarProperty Name="DatetimeStamp" ColumnName="DatetimeStamp" />
+          <ScalarProperty Name="Condition" ColumnName="Condition" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="ObjectsensorId" ColumnName="ObjectsensorId" />
+          <ScalarProperty Name="PMID" ColumnName="PMID" />
+          <ScalarProperty Name="DinId" ColumnName="DinId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SMSLogTempTables">
+      <EntityTypeMapping TypeName="TIOTModel.SMSLogTempTable">
+        <MappingFragment StoreEntitySet="SMSLogTempTable">
+          <ScalarProperty Name="PMID" ColumnName="PMID" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="Condition" ColumnName="Condition" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="SensorID" ColumnName="SensorID" />
+          <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+          <ScalarProperty Name="ObjectSensorID" ColumnName="ObjectSensorID" />
+          <ScalarProperty Name="SMSLogID" ColumnName="SMSLogID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Status">
+      <EntityTypeMapping TypeName="TIOTModel.Status">
+        <MappingFragment StoreEntitySet="Status">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SwitchesReports">
+      <EntityTypeMapping TypeName="TIOTModel.SwitchesReport">
+        <MappingFragment StoreEntitySet="SwitchesReport">
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          <ScalarProperty Name="DateTimeStamp" ColumnName="DateTimeStamp" />
+          <ScalarProperty Name="S_SensorId" ColumnName="S_SensorId" />
+          <ScalarProperty Name="V_SensorId" ColumnName="V_SensorId" />
+          <ScalarProperty Name="C_SensorId" ColumnName="C_SensorId" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="TotalTime_Decimal" ColumnName="TotalTime_Decimal" />
+          <ScalarProperty Name="TotalTime" ColumnName="TotalTime" />
+          <ScalarProperty Name="Fault" ColumnName="Fault" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Unit" ColumnName="Unit" />
+          <ScalarProperty Name="Power" ColumnName="Power" />
+          <ScalarProperty Name="Voltage" ColumnName="Voltage" />
+          <ScalarProperty Name="Current" ColumnName="Current" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+          <ScalarProperty Name="SwitchID" ColumnName="SwitchID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="TIOTModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConsumptionReports">
+      <EntityTypeMapping TypeName="TIOTModel.ConsumptionReport">
+        <MappingFragment StoreEntitySet="ConsumptionReport">
+          <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="Power" ColumnName="Power" />
+          <ScalarProperty Name="Cur" ColumnName="Cur" />
+          <ScalarProperty Name="Volt" ColumnName="Volt" />
+          <ScalarProperty Name="SensorID" ColumnName="SensorID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ControllingReports">
+      <EntityTypeMapping TypeName="TIOTModel.ControllingReport">
+        <MappingFragment StoreEntitySet="ControllingReport">
+          <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="TotalDuration" ColumnName="TotalDuration" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="SensorName" ColumnName="SensorName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DigitalInputLogs">
+      <EntityTypeMapping TypeName="TIOTModel.DigitalInputLog">
+        <MappingFragment StoreEntitySet="DigitalInputLog">
+          <ScalarProperty Name="PMID" ColumnName="PMID" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="Condition" ColumnName="Condition" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="SensorID" ColumnName="SensorID" />
+          <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+          <ScalarProperty Name="ObjectSensorID" ColumnName="ObjectSensorID" />
+          <ScalarProperty Name="LogID" ColumnName="LogID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DigitalInputTemps">
+      <EntityTypeMapping TypeName="TIOTModel.DigitalInputTemp">
+        <MappingFragment StoreEntitySet="DigitalInputTemp">
+          <ScalarProperty Name="DatetimeStamp" ColumnName="DatetimeStamp" />
+          <ScalarProperty Name="Condition" ColumnName="Condition" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="ObjectsensorId" ColumnName="ObjectsensorId" />
+          <ScalarProperty Name="PMID" ColumnName="PMID" />
+          <ScalarProperty Name="DinId" ColumnName="DinId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReportConsumptions">
+      <EntityTypeMapping TypeName="TIOTModel.ReportConsumption">
+        <MappingFragment StoreEntitySet="ReportConsumption">
+          <ScalarProperty Name="DayDate" ColumnName="DayDate" />
+          <ScalarProperty Name="SensorName" ColumnName="SensorName" />
+          <ScalarProperty Name="DeviceName" ColumnName="DeviceName" />
+          <ScalarProperty Name="Average" ColumnName="Average" />
+          <ScalarProperty Name="SensorID" ColumnName="SensorID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ConsumptionID" ColumnName="ConsumptionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReportControllings">
+      <EntityTypeMapping TypeName="TIOTModel.ReportControlling">
+        <MappingFragment StoreEntitySet="ReportControlling">
+          <ScalarProperty Name="SensorName" ColumnName="SensorName" />
+          <ScalarProperty Name="DateTimeStamp" ColumnName="DateTimeStamp" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+          <ScalarProperty Name="SourceName" ColumnName="SourceName" />
+          <ScalarProperty Name="ControllingID" ColumnName="ControllingID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SensorCommands">
+      <EntityTypeMapping TypeName="TIOTModel.SensorCommand">
+        <MappingFragment StoreEntitySet="SensorCommand">
+          <ScalarProperty Name="RelayStatus" ColumnName="RelayStatus" />
+          <ScalarProperty Name="Route" ColumnName="Route" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="SensorID" ColumnName="SensorID" />
+          <ScalarProperty Name="CommandID" ColumnName="CommandID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SensorControllings">
+      <EntityTypeMapping TypeName="TIOTModel.SensorControlling">
+        <MappingFragment StoreEntitySet="SensorControlling">
+          <ScalarProperty Name="Enabled" ColumnName="Enabled" />
+          <ScalarProperty Name="RelayStatus" ColumnName="RelayStatus" />
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          <ScalarProperty Name="OffCommandID" ColumnName="OffCommandID" />
+          <ScalarProperty Name="OnCommandID" ColumnName="OnCommandID" />
+          <ScalarProperty Name="Condition" ColumnName="Condition" />
+          <ScalarProperty Name="Max" ColumnName="Max" />
+          <ScalarProperty Name="Min" ColumnName="Min" />
+          <ScalarProperty Name="ObjectSensorID" ColumnName="ObjectSensorID" />
+          <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+          <ScalarProperty Name="SCID" ColumnName="SCID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SensorObjectGroups">
+      <EntityTypeMapping TypeName="TIOTModel.SensorObjectGroup">
+        <MappingFragment StoreEntitySet="SensorObjectGroup">
+          <ScalarProperty Name="ROUTFault" ColumnName="ROUTFault" />
+          <ScalarProperty Name="ROUTStatus" ColumnName="ROUTStatus" />
+          <ScalarProperty Name="ROUTVoltage" ColumnName="ROUTVoltage" />
+          <ScalarProperty Name="ROUTCurrent" ColumnName="ROUTCurrent" />
+          <ScalarProperty Name="ROUT" ColumnName="ROUT" />
+          <ScalarProperty Name="SensorObjectGroupID" ColumnName="SensorObjectGroupID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TempSwitchReports">
+      <EntityTypeMapping TypeName="TIOTModel.TempSwitchReport">
+        <MappingFragment StoreEntitySet="TempSwitchReport">
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          <ScalarProperty Name="S_SensorId" ColumnName="S_SensorId" />
+          <ScalarProperty Name="V_SensorId" ColumnName="V_SensorId" />
+          <ScalarProperty Name="C_SensorId" ColumnName="C_SensorId" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="Fault" ColumnName="Fault" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Voltage" ColumnName="Voltage" />
+          <ScalarProperty Name="Current" ColumnName="Current" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
+          <ScalarProperty Name="TempId" ColumnName="TempId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="uspGET_ObjectIDNameByGroup" FunctionName="TIOTModel.Store.uspGET_ObjectIDNameByGroup">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TIOTModel.uspGET_ObjectIDNameByGroup_Result">
+          <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="LastRecordReceived" ColumnName="LastRecordReceived" />
+          <ScalarProperty Name="RelayStatus" ColumnName="RelayStatus" />
+          <ScalarProperty Name="TavlStatus" ColumnName="TavlStatus" />
+          <ScalarProperty Name="TavlIP" ColumnName="TavlIP" />
+          <ScalarProperty Name="AttendanceStatus" ColumnName="AttendanceStatus" />
+          <ScalarProperty Name="AttendanceClient" ColumnName="AttendanceClient" />
+          <ScalarProperty Name="AttendanceIP" ColumnName="AttendanceIP" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="uspGet_EquipmentConsumptionByDT" FunctionName="TIOTModel.Store.uspGet_EquipmentConsumptionByDT">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TIOTModel.uspGet_EquipmentConsumptionByDT_Result">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Current" ColumnName="Current" />
+          <ScalarProperty Name="Voltage" ColumnName="Voltage" />
+          <ScalarProperty Name="Power" ColumnName="Power" />
+          <ScalarProperty Name="Unit" ColumnName="Unit" />
+          <ScalarProperty Name="TotalTime" ColumnName="TotalTime" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="CommandLogByUserIDs">
+      <EntityTypeMapping TypeName="TIOTModel.CommandLogByUserID">
+        <MappingFragment StoreEntitySet="CommandLogByUserID">
+          <ScalarProperty Name="DateTimeStamp" ColumnName="DateTimeStamp" />
+          <ScalarProperty Name="CommandID" ColumnName="CommandID" />
+          <ScalarProperty Name="SensorID" ColumnName="SensorID" />
+          <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="LogID" ColumnName="LogID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ObjectAlertStatus">
+      <EntityTypeMapping TypeName="TIOTModel.ObjectAlertStatu">
+        <MappingFragment StoreEntitySet="ObjectAlertStatus">
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="DateTimeStamp" ColumnName="DateTimeStamp" />
+          <ScalarProperty Name="ObjectID" ColumnName="ObjectID" />
+          <ScalarProperty Name="AlertID" ColumnName="AlertID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
